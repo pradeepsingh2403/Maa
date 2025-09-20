@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "D:\\Training Material\\Kashi Anapurna App\\Maa\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|d:\\training material\\kashi anapurna app\\maa\\maa\\frmaddschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|solutionrelative:maa\\frmaddschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|D:\\Training Material\\Kashi Anapurna App\\Maa\\maa\\frmaddschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|solutionrelative:maa\\frmaddschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|d:\\training material\\kashi anapurna app\\maa\\maa\\maa.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|solutionrelative:maa\\maa.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|d:\\training material\\kashi anapurna app\\maa\\maa\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|solutionrelative:maa\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|d:\\training material\\kashi anapurna app\\maa\\maa\\frmusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|solutionrelative:maa\\frmusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|d:\\training material\\kashi anapurna app\\maa\\maa\\frmusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|solutionrelative:maa\\frmusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|d:\\training material\\kashi anapurna app\\maa\\maa\\frmrolepermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|solutionrelative:maa\\frmrolepermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|d:\\training material\\kashi anapurna app\\maa\\maa\\frmrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|solutionrelative:maa\\frmrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|d:\\training material\\kashi anapurna app\\maa\\maa\\frmrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6F00DF4-AEB0-4E8C-9AB2-679BBAAD8E2C}|Maa\\Maa.csproj|solutionrelative:maa\\frmrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,53 +42,78 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Maa.csproj",
-              "DocumentMoniker": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\Maa.csproj",
-              "RelativeDocumentMoniker": "Maa\\Maa.csproj",
-              "ToolTip": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\Maa.csproj",
-              "RelativeToolTip": "Maa\\Maa.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-18T11:17:22.074Z",
+              "DocumentIndex": 1,
+              "Title": "frmUsers.cs",
+              "DocumentMoniker": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\frmUsers.cs",
+              "RelativeDocumentMoniker": "Maa\\frmUsers.cs",
+              "ToolTip": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\frmUsers.cs",
+              "RelativeToolTip": "Maa\\frmUsers.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAACoAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T01:21:24.515Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmUsers.cs [Design]",
+              "DocumentMoniker": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\frmUsers.cs",
+              "RelativeDocumentMoniker": "Maa\\frmUsers.cs",
+              "ToolTip": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\frmUsers.cs [Design]",
+              "RelativeToolTip": "Maa\\frmUsers.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T01:08:17.135Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmRole.cs",
+              "DocumentMoniker": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\frmRole.cs",
+              "RelativeDocumentMoniker": "Maa\\frmRole.cs",
+              "ToolTip": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\frmRole.cs",
+              "RelativeToolTip": "Maa\\frmRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T00:53:06.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmRole.cs [Design]",
+              "DocumentMoniker": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\frmRole.cs",
+              "RelativeDocumentMoniker": "Maa\\frmRole.cs",
+              "ToolTip": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\frmRole.cs [Design]",
+              "RelativeToolTip": "Maa\\frmRole.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T00:53:03.206Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "frmRolePermission.cs [Design]",
+              "DocumentMoniker": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\frmRolePermission.cs",
+              "RelativeDocumentMoniker": "Maa\\frmRolePermission.cs",
+              "ToolTip": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\frmRolePermission.cs [Design]",
+              "RelativeToolTip": "Maa\\frmRolePermission.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T00:47:18.77Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\Program.cs",
               "RelativeDocumentMoniker": "Maa\\Program.cs",
               "ToolTip": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\Program.cs",
               "RelativeToolTip": "Maa\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T11:30:35.869Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmAddSchema.cs",
-              "DocumentMoniker": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\frmAddSchema.cs",
-              "RelativeDocumentMoniker": "Maa\\frmAddSchema.cs",
-              "ToolTip": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\frmAddSchema.cs",
-              "RelativeToolTip": "Maa\\frmAddSchema.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAIwBoAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T11:23:19.421Z",
+              "WhenOpened": "2025-09-18T11:30:35.869Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmAddSchema.cs [Design]",
-              "DocumentMoniker": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\frmAddSchema.cs",
-              "RelativeDocumentMoniker": "Maa\\frmAddSchema.cs",
-              "ToolTip": "D:\\Training Material\\Kashi Anapurna App\\Maa\\Maa\\frmAddSchema.cs [Design]",
-              "RelativeToolTip": "Maa\\frmAddSchema.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T11:18:09.841Z",
-              "EditorCaption": " [Design]"
             }
           ]
         }

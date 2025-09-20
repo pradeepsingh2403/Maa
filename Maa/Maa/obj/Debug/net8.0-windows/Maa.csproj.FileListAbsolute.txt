@@ -18,3 +18,7 @@ D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.gen
 D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\ref\Maa.dll
 D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.frmAddSchema.resources
 D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.Properties.Resources.resources
+D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.sourcelink.json
+D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.frmRole.resources
+D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.frmRolePermission.resources
+D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.frmUsers.resources
