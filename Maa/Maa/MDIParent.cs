@@ -70,7 +70,7 @@ namespace Maa
 
         private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
+
         }
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -99,6 +99,27 @@ namespace Maa
             {
                 childForm.Close();
             }
+        }
+
+        private void addRolePermissionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MDIParent_Load(object sender, EventArgs e)
+        {
+            frmDashboard dashboard = new frmDashboard();
+            dashboard.MdiParent = this;   // set MDI parent
+            dashboard.WindowState = FormWindowState.Maximized; // optional (fill parent)
+            dashboard.Show();
+        }
+
+        private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDashboard dashboard = new frmDashboard();
+            dashboard.MdiParent = this;   // set MDI parent
+            dashboard.WindowState = FormWindowState.Maximized; // optional (fill parent)
+            dashboard.Show();
         }
     }
 }

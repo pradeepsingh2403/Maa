@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            label1 = new Label();
-            label2 = new Label();
-            txtEmailID = new TextBox();
             txtPassword = new TextBox();
+            txtEmailID = new TextBox();
+            label2 = new Label();
+            label1 = new Label();
             btnSubmit = new Button();
             btnCancel = new Button();
             groupBox1.SuspendLayout();
@@ -51,14 +51,20 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             // 
-            // label1
+            // txtPassword
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(45, 52);
-            label1.Name = "label1";
-            label1.Size = new Size(77, 25);
-            label1.TabIndex = 0;
-            label1.Text = "Email ID";
+            txtPassword.Location = new Point(258, 119);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
+            txtPassword.Size = new Size(378, 31);
+            txtPassword.TabIndex = 2;
+            // 
+            // txtEmailID
+            // 
+            txtEmailID.Location = new Point(258, 49);
+            txtEmailID.Name = "txtEmailID";
+            txtEmailID.Size = new Size(378, 31);
+            txtEmailID.TabIndex = 1;
             // 
             // label2
             // 
@@ -69,35 +75,31 @@
             label2.TabIndex = 0;
             label2.Text = "Password";
             // 
-            // txtEmailID
+            // label1
             // 
-            txtEmailID.Location = new Point(258, 49);
-            txtEmailID.Name = "txtEmailID";
-            txtEmailID.Size = new Size(378, 31);
-            txtEmailID.TabIndex = 1;
-            // 
-            // txtPassword
-            // 
-            txtPassword.Location = new Point(258, 119);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(378, 31);
-            txtPassword.TabIndex = 1;
+            label1.AutoSize = true;
+            label1.Location = new Point(45, 52);
+            label1.Name = "label1";
+            label1.Size = new Size(77, 25);
+            label1.TabIndex = 0;
+            label1.Text = "Email ID";
             // 
             // btnSubmit
             // 
             btnSubmit.Location = new Point(608, 345);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(112, 34);
-            btnSubmit.TabIndex = 1;
+            btnSubmit.TabIndex = 3;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // btnCancel
             // 
             btnCancel.Location = new Point(726, 345);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(112, 34);
-            btnCancel.TabIndex = 1;
+            btnCancel.TabIndex = 4;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
             // 
