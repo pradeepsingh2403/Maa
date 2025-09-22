@@ -41,7 +41,6 @@
             addDonationToolStripMenuItem = new ToolStripMenuItem();
             donationListToolStripMenuItem = new ToolStripMenuItem();
             helpMenu = new ToolStripMenuItem();
-            toolStripSeparator8 = new ToolStripSeparator();
             statusStrip = new StatusStrip();
             toolStripStatusLabel = new ToolStripStatusLabel();
             toolTip = new ToolTip(components);
@@ -73,12 +72,14 @@
             addRoleToolStripMenuItem.Name = "addRoleToolStripMenuItem";
             addRoleToolStripMenuItem.Size = new Size(277, 34);
             addRoleToolStripMenuItem.Text = "Add &Role";
+            addRoleToolStripMenuItem.Click += addRoleToolStripMenuItem_Click;
             // 
             // addUserToolStripMenuItem
             // 
             addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
             addUserToolStripMenuItem.Size = new Size(277, 34);
             addUserToolStripMenuItem.Text = "Add U&ser";
+            addUserToolStripMenuItem.Click += addUserToolStripMenuItem_Click;
             // 
             // addRolePermissionToolStripMenuItem
             // 
@@ -97,44 +98,40 @@
             // dashboardToolStripMenuItem
             // 
             dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            dashboardToolStripMenuItem.Size = new Size(270, 34);
+            dashboardToolStripMenuItem.Size = new Size(227, 34);
             dashboardToolStripMenuItem.Text = "Dash&board";
             dashboardToolStripMenuItem.Click += dashboardToolStripMenuItem_Click;
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(267, 6);
+            toolStripMenuItem1.Size = new Size(224, 6);
             // 
             // addSchemaToolStripMenuItem
             // 
             addSchemaToolStripMenuItem.Name = "addSchemaToolStripMenuItem";
             addSchemaToolStripMenuItem.Size = new Size(270, 34);
-            addSchemaToolStripMenuItem.Text = "Add &Schema";
+            addSchemaToolStripMenuItem.Text = "Add &Scheme";
+            addSchemaToolStripMenuItem.Click += addSchemaToolStripMenuItem_Click;
             // 
             // addDonationToolStripMenuItem
             // 
             addDonationToolStripMenuItem.Name = "addDonationToolStripMenuItem";
-            addDonationToolStripMenuItem.Size = new Size(270, 34);
+            addDonationToolStripMenuItem.Size = new Size(227, 34);
             addDonationToolStripMenuItem.Text = "Add &Donation";
             // 
             // donationListToolStripMenuItem
             // 
             donationListToolStripMenuItem.Name = "donationListToolStripMenuItem";
-            donationListToolStripMenuItem.Size = new Size(270, 34);
+            donationListToolStripMenuItem.Size = new Size(227, 34);
             donationListToolStripMenuItem.Text = "Donation &List";
             // 
             // helpMenu
             // 
-            helpMenu.DropDownItems.AddRange(new ToolStripItem[] { toolStripSeparator8 });
             helpMenu.Name = "helpMenu";
             helpMenu.Size = new Size(55, 29);
             helpMenu.Text = "&Exit";
-            // 
-            // toolStripSeparator8
-            // 
-            toolStripSeparator8.Name = "toolStripSeparator8";
-            toolStripSeparator8.Size = new Size(87, 6);
+            helpMenu.Click += helpMenu_Click;
             // 
             // statusStrip
             // 
@@ -180,7 +177,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.StatusStrip statusStrip;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
         private System.Windows.Forms.ToolStripMenuItem fileMenu;
         private System.Windows.Forms.ToolStripMenuItem editMenu;

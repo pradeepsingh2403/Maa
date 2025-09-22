@@ -108,10 +108,10 @@ namespace Maa
 
         private void MDIParent_Load(object sender, EventArgs e)
         {
-            frmDashboard dashboard = new frmDashboard();
-            dashboard.MdiParent = this;   // set MDI parent
-            dashboard.WindowState = FormWindowState.Maximized; // optional (fill parent)
-            dashboard.Show();
+            //frmDashboard dashboard = new frmDashboard();
+            //dashboard.MdiParent = this;   // set MDI parent
+            //dashboard.WindowState = FormWindowState.Maximized; // optional (fill parent)
+            //dashboard.Show();
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -120,6 +120,35 @@ namespace Maa
             dashboard.MdiParent = this;   // set MDI parent
             dashboard.WindowState = FormWindowState.Maximized; // optional (fill parent)
             dashboard.Show();
+        }
+
+        private void addRoleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRole role = new frmRole();
+            role.MdiParent = this;   // set MDI parent
+            role.WindowState = FormWindowState.Normal; // optional (fill parent)
+            role.Show();
+        }
+
+        private void addUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsers users = new frmUsers();
+            users.MdiParent = this;   // set MDI parent
+            users.WindowState = FormWindowState.Normal; // optional (fill parent)
+            users.Show();
+        }
+
+        private void helpMenu_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void addSchemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddScheme schema = new frmAddScheme  ();
+            schema.MdiParent = this;   // set MDI parent
+            schema.WindowState = FormWindowState.Normal; // optional (fill parent)
+            schema.Show();
         }
     }
 }

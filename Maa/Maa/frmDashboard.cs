@@ -72,8 +72,13 @@ namespace Maa
             }
 
             // Get all donation data for DataGridView
-            string sqlGrid = "SELECT id, payment_mode, payment_mode_details, receipt_number, donor_name, donation_amount, donation_date FROM donations";
-            using (var adapter = new MySqlDataAdapter(sqlGrid, con))
+            //string sqlGrid = "SELECT id, payment_mode, payment_mode_details, receipt_number, donor_name, donation_amount, donation_date FROM donations";
+                string sqlGrid = @"SELECT id, payment_mode, payment_mode_details, 
+                          receipt_number, donor_name, donation_amount, donation_date 
+                   FROM donations
+                   ORDER BY donation_date DESC
+                   LIMIT 10";
+                using (var adapter = new MySqlDataAdapter(sqlGrid, con))
             {
                 adapter.Fill(donationData);
             }

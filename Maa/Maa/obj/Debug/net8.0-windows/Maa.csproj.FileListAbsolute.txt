@@ -16,7 +16,6 @@ D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\refint\
 D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.pdb
 D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.genruntimeconfig.cache
 D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\ref\Maa.dll
-D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.frmAddSchema.resources
 D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.Properties.Resources.resources
 D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.sourcelink.json
 D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.frmRole.resources
@@ -40,3 +39,4 @@ D:\Training Material\Kashi Anapurna App\Maa\Maa\bin\Debug\net8.0-windows\runtime
 D:\Training Material\Kashi Anapurna App\Maa\Maa\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.csproj.AssemblyReference.cache
 D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.csproj.Up2Date
+D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.frmAddScheme.resources

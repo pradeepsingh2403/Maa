@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            button2 = new Button();
-            button1 = new Button();
-            textBox1 = new TextBox();
+            btnAdd = new Button();
+            btnDelete = new Button();
+            txtRoleName = new TextBox();
             label1 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -39,9 +39,9 @@
             // groupBox1
             // 
             groupBox1.BackColor = SystemColors.ButtonHighlight;
-            groupBox1.Controls.Add(button2);
-            groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(btnAdd);
+            groupBox1.Controls.Add(btnDelete);
+            groupBox1.Controls.Add(txtRoleName);
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(12, 6);
             groupBox1.Name = "groupBox1";
@@ -49,30 +49,32 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             // 
-            // button2
+            // btnAdd
             // 
-            button2.Location = new Point(891, 56);
-            button2.Name = "button2";
-            button2.Size = new Size(112, 34);
-            button2.TabIndex = 2;
-            button2.Text = "Delete";
-            button2.UseVisualStyleBackColor = true;
+            btnAdd.Location = new Point(764, 56);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(112, 34);
+            btnAdd.TabIndex = 2;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
-            // button1
+            // btnDelete
             // 
-            button1.Location = new Point(773, 56);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 2;
-            button1.Text = "Add";
-            button1.UseVisualStyleBackColor = true;
+            btnDelete.Location = new Point(891, 56);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(112, 34);
+            btnDelete.TabIndex = 3;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
-            // textBox1
+            // txtRoleName
             // 
-            textBox1.Location = new Point(290, 60);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(421, 31);
-            textBox1.TabIndex = 1;
+            txtRoleName.Location = new Point(290, 60);
+            txtRoleName.Name = "txtRoleName";
+            txtRoleName.Size = new Size(421, 31);
+            txtRoleName.TabIndex = 1;
             // 
             // label1
             // 
@@ -89,6 +91,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1479, 627);
             Controls.Add(groupBox1);
+            MaximizeBox = false;
             Name = "frmRole";
             Text = "Role";
             groupBox1.ResumeLayout(false);
@@ -99,9 +102,9 @@
         #endregion
 
         private GroupBox groupBox1;
-        private Button button2;
-        private Button button1;
-        private TextBox textBox1;
+        private Button btnDelete;
+        private TextBox txtRoleName;
         private Label label1;
+        private Button btnAdd;
     }
 }

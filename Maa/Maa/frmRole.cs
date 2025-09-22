@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,26 +16,15 @@ namespace Maa
         public frmRole()
         {
             InitializeComponent();
-            frmAddRole_Load(this, EventArgs.Empty); 
+            CreateDataGridView();
+            LoadRoles();
         }
 
-        private void frmAddRole_Load(object sender, EventArgs e)
+        private DataGridView dgv;
+        private int selectedRoleId = -1;
+
+        private void CreateDataGridView()
         {
-            // === GroupBox setup ===
-            groupBox1.Top = 20;
-            groupBox1.Left = 10;
-            groupBox1.Width = this.ClientSize.Width - 20;
-            groupBox1.Height = 140;
-
-            this.Resize += (s, ev) =>
-            {
-                groupBox1.Width = this.ClientSize.Width - 20;
-                dgv.Top = groupBox1.Bottom + 10;
-                dgv.Width = this.ClientSize.Width - 20;
-                dgv.Height = this.ClientSize.Height - dgv.Top - 20;
-            };
-
-            // === DataGridView setup ===
             dgv = new DataGridView
             {
                 Top = groupBox1.Bottom + 10,
@@ -42,47 +32,189 @@ namespace Maa
                 Width = this.ClientSize.Width - 20,
                 Height = this.ClientSize.Height - (groupBox1.Bottom + 20),
                 AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
-                BackgroundColor = Color.White,
-                BorderStyle = BorderStyle.None,
-                CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal,
-                ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None,
-                EnableHeadersVisualStyles = false,
-                RowHeadersVisible = false,
-                AllowUserToAddRows = false,
                 ReadOnly = true,
-                SelectionMode = DataGridViewSelectionMode.FullRowSelect
+                AllowUserToAddRows = false,
+                SelectionMode = DataGridViewSelectionMode.FullRowSelect,
+                BackgroundColor = Color.WhiteSmoke,
+                BorderStyle = BorderStyle.FixedSingle,
+                RowHeadersVisible = false,
+                Font = new Font("Segoe UI", 10),
+                MultiSelect = false,
+                EnableHeadersVisualStyles = false
             };
 
+            // Header styling
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(45, 85, 155);
             dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+            dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgv.ColumnHeadersHeight = 40;
 
+            // Row styling
             dgv.DefaultCellStyle.BackColor = Color.White;
             dgv.DefaultCellStyle.ForeColor = Color.Black;
-            dgv.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Regular);
-            dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(225, 235, 255);
-            dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(100, 149, 237); // CornflowerBlue
+            dgv.DefaultCellStyle.SelectionForeColor = Color.White;
             dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 248, 255);
+            dgv.GridColor = Color.LightGray;
+            dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
 
-            // Example columns
-            dgv.Columns.Add("EnquiryId", "Enquiry ID");
-            dgv.Columns.Add("CustomerName", "Customer Name");
-            dgv.Columns.Add("Status", "Status");
-            dgv.Columns.Add("Date", "Date");
-
-
-            // Example rows
-            dgv.Rows.Add("E001", "John Doe", "Success", DateTime.Now.ToShortDateString());
-            dgv.Rows.Add("E002", "Mary Smith", "Pending", DateTime.Now.ToShortDateString());
-            dgv.Rows.Add("E003", "Sam Kumar", "Error", DateTime.Now.ToShortDateString());
-
-//            dgv.CellClick += Dgv_CellClick;
+            dgv.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 
             this.Controls.Add(dgv);
+            dgv.CellDoubleClick += Dgv_CellDoubleClick;
+            // Resize handler
+            this.Resize += (s, e) =>
+            {
+                dgv.Width = this.ClientSize.Width - 20;
+                dgv.Height = this.ClientSize.Height - (groupBox1.Bottom + 20);
+            };
         }
 
-        private DataGridView dgv;
+        // --- Load roles from MySQL ---
+        private void LoadRoles()
+        {
+            try
+            {
+                string connStr = GlobalFunctions.ConnString;
+                using (var con = new MySqlConnection(connStr))
+                {
+                    con.Open();
+                    string sql = "SELECT id, name, created_at, updated_at FROM roles";
+                    using (var adapter = new MySqlDataAdapter(sql, con))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        dgv.DataSource = dt;
+
+                        // Hide ID column
+                        if (dgv.Columns.Contains("id")) dgv.Columns["id"].Visible = false;
+
+                        // Rename headers
+                        if (dgv.Columns.Contains("name")) dgv.Columns["name"].HeaderText = "Role Name";
+                        if (dgv.Columns.Contains("created_at")) dgv.Columns["created_at"].HeaderText = "Created At";
+                        if (dgv.Columns.Contains("updated_at")) dgv.Columns["updated_at"].HeaderText = "Updated At";
+
+                        // Center all headers and left-align cell text
+                        foreach (DataGridViewColumn col in dgv.Columns)
+                        {
+                            col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                            col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading roles: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void Dgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgv.Rows[e.RowIndex];
+                selectedRoleId = Convert.ToInt32(row.Cells["id"].Value); // store the ID
+                txtRoleName.Text = row.Cells["name"].Value.ToString();   // show name in textbox
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            InsertRole (txtRoleName.Text.Trim());
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DeleteRole();
+        }
+
+        private void InsertRole(string roleName)
+        {
+            if (string.IsNullOrWhiteSpace(roleName))
+            {
+                MessageBox.Show("Please enter a role name.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                string connStr = GlobalFunctions.ConnString;
+                using (var con = new MySqlConnection(connStr))
+                {
+                    con.Open();
+                    string sql = "INSERT INTO roles (name, created_at, updated_at) VALUES (@name, NOW(), NOW())";
+
+                    using (var cmd = new MySqlCommand(sql, con))
+                    {
+                        cmd.Parameters.AddWithValue("@name", roleName);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Role added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txtRoleName.Clear();
+                            LoadRoles(); // Refresh DataGridView
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to add role.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding role: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DeleteRole()
+        {
+            if (selectedRoleId <= 0)
+            {
+                MessageBox.Show("Please select a role from the grid to delete.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (MessageBox.Show("Are you sure you want to delete this role?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    string connStr = GlobalFunctions.ConnString;
+                    using (var con = new MySqlConnection(connStr))
+                    {
+                        con.Open();
+                        string sql = "DELETE FROM roles WHERE id=@id";
+
+                        using (var cmd = new MySqlCommand(sql, con))
+                        {
+                            cmd.Parameters.AddWithValue("@id", selectedRoleId);
+                            int rowsAffected = cmd.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Role deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                txtRoleName.Clear();
+                                selectedRoleId = -1;
+                                LoadRoles(); // refresh DataGridView
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed to delete role.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error deleting role: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
 
     }
 }
