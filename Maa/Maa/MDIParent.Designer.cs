@@ -119,12 +119,14 @@
             addDonationToolStripMenuItem.Name = "addDonationToolStripMenuItem";
             addDonationToolStripMenuItem.Size = new Size(227, 34);
             addDonationToolStripMenuItem.Text = "Add &Donation";
+            addDonationToolStripMenuItem.Click += addDonationToolStripMenuItem_Click;
             // 
             // donationListToolStripMenuItem
             // 
             donationListToolStripMenuItem.Name = "donationListToolStripMenuItem";
             donationListToolStripMenuItem.Size = new Size(227, 34);
             donationListToolStripMenuItem.Text = "Donation &List";
+            donationListToolStripMenuItem.Click += listDonationToolStripMenuItem_Click;
             // 
             // helpMenu
             // 

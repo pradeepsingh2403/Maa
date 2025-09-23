@@ -40,3 +40,52 @@ D:\Training Material\Kashi Anapurna App\Maa\Maa\bin\Debug\net8.0-windows\runtime
 D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.csproj.AssemblyReference.cache
 D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.csproj.Up2Date
 D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.frmAddScheme.resources
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\Maa.exe
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\Maa.deps.json
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\Maa.runtimeconfig.json
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\Maa.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\Maa.pdb
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\Google.Protobuf.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\K4os.Compression.LZ4.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\K4os.Hash.xxHash.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\MySql.Data.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\System.Text.Encodings.Web.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\System.Text.Json.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\ZstdSharp.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.csproj.AssemblyReference.cache
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.frmAddScheme.resources
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.frmDashboard.resources
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.frmLogin.resources
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.frmRole.resources
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.frmRolePermission.resources
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.frmUsers.resources
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.MDIParent.resources
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.Properties.Resources.resources
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.csproj.GenerateResource.cache
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.AssemblyInfoInputs.cache
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.AssemblyInfo.cs
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.sourcelink.json
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.csproj.Up2Date
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\refint\Maa.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.pdb
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.genruntimeconfig.cache
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\ref\Maa.dll
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.FrmAddDonation.resources
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.FrmListDonations.resources
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.FrmPopup.resources
+D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.FrmAddDonation.resources
+D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.FrmListDonations.resources
+D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.FrmPopup.resources
+D:\Training Material\Kashi Anapurna App\Maa\Maa\obj\Debug\net8.0-windows\Maa.frmAddDonationForm.resources

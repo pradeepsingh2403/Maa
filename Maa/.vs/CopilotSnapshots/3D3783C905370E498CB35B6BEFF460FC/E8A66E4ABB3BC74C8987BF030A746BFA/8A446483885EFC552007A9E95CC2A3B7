@@ -1,0 +1,134 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Maa
+{
+    public partial class AddDonantionForm : Form
+    {
+        public AddDonantionForm()
+        {
+            InitializeComponent();
+        }
+
+
+        private void InitializeComponent()
+        {
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabDonor = new System.Windows.Forms.TabPage();
+            this.tabDonation = new System.Windows.Forms.TabPage();
+            this.tabRitual = new System.Windows.Forms.TabPage();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+
+            // === TabControl ===
+            this.tabControl1.Controls.Add(this.tabDonor);
+            this.tabControl1.Controls.Add(this.tabDonation);
+            this.tabControl1.Controls.Add(this.tabRitual);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControl1.Height = 400;
+
+            // === Donor Tab ===
+            this.tabDonor.Text = "Donor Details";
+            this.tabDonor.Controls.Add(CreateLabeledTextBox("Donor Name:", "txtDonorName", 20, 20));
+            this.tabDonor.Controls.Add(CreateLabeledTextBox("Gotra:", "txtGotra", 20, 60));
+            this.tabDonor.Controls.Add(CreateLabeledComboBox("ID Type:", "cmbIdType", 20, 100));
+            this.tabDonor.Controls.Add(CreateLabeledTextBox("ID Number:", "txtIdNumber", 20, 140));
+            this.tabDonor.Controls.Add(CreateLabeledTextBox("Mobile:", "txtMobile", 20, 180));
+            this.tabDonor.Controls.Add(CreateLabeledTextBox("WhatsApp:", "txtWhatsapp", 20, 220));
+            this.tabDonor.Controls.Add(CreateLabeledTextBox("Alternate No.:", "txtAlternate", 20, 260));
+            this.tabDonor.Controls.Add(CreateLabeledTextBox("Area:", "txtArea", 20, 300));
+            this.tabDonor.Controls.Add(CreateLabeledTextBox("City:", "txtCity", 20, 340));
+            this.tabDonor.Controls.Add(CreateLabeledMultilineTextBox("Full Address:", "txtFullAddress", 350, 20, 200));
+
+            // === Donation Tab ===
+            this.tabDonation.Text = "Donation Details";
+            this.tabDonation.Controls.Add(CreateLabeledDatePicker("Donation Date:", "dtpDonationDate", 20, 20));
+            this.tabDonation.Controls.Add(CreateLabeledTextBox("In Favour Of:", "txtInFavour", 20, 60));
+            this.tabDonation.Controls.Add(CreateLabeledTextBox("Amount:", "txtDonationAmount", 20, 100));
+            this.tabDonation.Controls.Add(CreateLabeledComboBox("Payment Mode:", "cmbPaymentMode", 20, 140));
+            this.tabDonation.Controls.Add(CreateLabeledTextBox("Payment Details:", "txtPaymentDetails", 20, 180));
+            this.tabDonation.Controls.Add(CreateLabeledTextBox("Receipt No.:", "txtReceiptNumber", 20, 220));
+            this.tabDonation.Controls.Add(CreateLabeledComboBox("Scheme Name:", "cmbSchemeName", 20, 260));
+
+            // === Ritual Tab ===
+            this.tabRitual.Text = "Ritual Details";
+            this.tabRitual.Controls.Add(CreateLabeledDatePicker("Ritual Date 1:", "dtpRitualDate1", 20, 20));
+            this.tabRitual.Controls.Add(CreateLabeledDatePicker("Ritual Date 2:", "dtpRitualDate2", 20, 60));
+            this.tabRitual.Controls.Add(CreateLabeledDatePicker("Special Date:", "dtpSplDate", 20, 100));
+            this.tabRitual.Controls.Add(CreateLabeledTextBox("Tithi:", "txtTithi", 20, 140));
+
+            // === Buttons ===
+            this.btnSave.Text = "Save";
+            this.btnSave.Location = new System.Drawing.Point(250, 420);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Location = new System.Drawing.Point(350, 420);
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+
+            // === Form ===
+            this.ClientSize = new System.Drawing.Size(600, 480);
+            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnCancel);
+            this.Text = "Donation Entry Form";
+        }
+
+
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabDonor;
+        private System.Windows.Forms.TabPage tabDonation;
+        private System.Windows.Forms.TabPage tabRitual;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnCancel;
+
+        // === Helper functions for cleaner UI generation ===
+        private Control CreateLabeledTextBox(string labelText, string name, int x, int y)
+        {
+            var lbl = new System.Windows.Forms.Label() { Text = labelText, Location = new System.Drawing.Point(x, y), AutoSize = true };
+            var txt = new System.Windows.Forms.TextBox() { Name = name, Location = new System.Drawing.Point(x + 120, y - 3), Width = 200 };
+            var panel = new System.Windows.Forms.Panel() { Location = new System.Drawing.Point(x, y), Width = 400, Height = 30 };
+            panel.Controls.Add(lbl);
+            panel.Controls.Add(txt);
+            return panel;
+        }
+
+        private Control CreateLabeledComboBox(string labelText, string name, int x, int y)
+        {
+            var lbl = new System.Windows.Forms.Label() { Text = labelText, Location = new System.Drawing.Point(x, y), AutoSize = true };
+            var cmb = new System.Windows.Forms.ComboBox() { Name = name, Location = new System.Drawing.Point(x + 120, y - 3), Width = 200, DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList };
+            var panel = new System.Windows.Forms.Panel() { Location = new System.Drawing.Point(x, y), Width = 400, Height = 30 };
+            panel.Controls.Add(lbl);
+            panel.Controls.Add(cmb);
+            return panel;
+        }
+
+        private Control CreateLabeledDatePicker(string labelText, string name, int x, int y)
+        {
+            var lbl = new System.Windows.Forms.Label() { Text = labelText, Location = new System.Drawing.Point(x, y), AutoSize = true };
+            var dtp = new System.Windows.Forms.DateTimePicker() { Name = name, Location = new System.Drawing.Point(x + 120, y - 3), Width = 200, Format = System.Windows.Forms.DateTimePickerFormat.Short };
+            var panel = new System.Windows.Forms.Panel() { Location = new System.Drawing.Point(x, y), Width = 400, Height = 30 };
+            panel.Controls.Add(lbl);
+            panel.Controls.Add(dtp);
+            return panel;
+        }
+
+        private Control CreateLabeledMultilineTextBox(string labelText, string name, int x, int y, int height)
+        {
+            var lbl = new System.Windows.Forms.Label() { Text = labelText, Location = new System.Drawing.Point(x, y), AutoSize = true };
+            var txt = new System.Windows.Forms.TextBox() { Name = name, Location = new System.Drawing.Point(x + 120, y - 3), Width = 200, Height = height, Multiline = true, ScrollBars = System.Windows.Forms.ScrollBars.Vertical };
+            var panel = new System.Windows.Forms.Panel() { Location = new System.Drawing.Point(x, y), Width = 400, Height = height + 20 };
+            panel.Controls.Add(lbl);
+            panel.Controls.Add(txt);
+            return panel;
+        }
+
+    }
+}
