@@ -122,6 +122,20 @@ namespace Maa
             dashboard.Show();
         }
 
+        private void addDonationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAddDonation dashboard = new FrmAddDonation();
+            dashboard.MdiParent = this;   // set MDI parent
+            dashboard.WindowState = FormWindowState.Maximized; // optional (fill parent)
+            dashboard.Show();
+        }
+        private void listDonationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmListDonations dashboard = new FrmListDonations();
+            dashboard.MdiParent = this;   // set MDI parent
+            dashboard.WindowState = FormWindowState.Maximized; // optional (fill parent)
+            dashboard.Show();
+        }
         private void addRoleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmRole role = new frmRole();
