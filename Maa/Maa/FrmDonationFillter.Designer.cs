@@ -1,6 +1,6 @@
 ﻿namespace Maa
 {
-    partial class FrmPopup
+    partial class FrmDonationFillter
     {
         /// <summary>
         /// Required designer variable.
@@ -30,33 +30,33 @@
         {
             tableLayoutPanel2 = new TableLayoutPanel();
             label2 = new Label();
-            textBox1 = new TextBox();
+            reciptInput = new TextBox();
             label1 = new Label();
             tableLayoutPanel3 = new TableLayoutPanel();
             tableLayoutPanel4 = new TableLayoutPanel();
-            textBox2 = new TextBox();
+            mobileInput = new TextBox();
             label3 = new Label();
             tableLayoutPanel5 = new TableLayoutPanel();
-            textBox3 = new TextBox();
+            minAmountInput = new TextBox();
             label4 = new Label();
             tableLayoutPanel6 = new TableLayoutPanel();
-            textBox4 = new TextBox();
+            maxAmountInput = new TextBox();
             label5 = new Label();
             tableLayoutPanel9 = new TableLayoutPanel();
             filterPaymentMode = new ComboBox();
             label8 = new Label();
             tableLayoutPanel10 = new TableLayoutPanel();
-            textBox8 = new TextBox();
+            idNumberFilter = new TextBox();
             label9 = new Label();
             tableLayoutPanel11 = new TableLayoutPanel();
             label10 = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            startDateFilter = new DateTimePicker();
             tableLayoutPanel12 = new TableLayoutPanel();
-            dateTimePicker2 = new DateTimePicker();
+            endDateFilter = new DateTimePicker();
             label11 = new Label();
             tableLayoutPanel13 = new TableLayoutPanel();
             label12 = new Label();
-            comboBox1 = new ComboBox();
+            tithiFilter = new ComboBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             button1 = new Button();
             tableLayoutPanel2.SuspendLayout();
@@ -77,7 +77,7 @@
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Controls.Add(label2, 0, 0);
-            tableLayoutPanel2.Controls.Add(textBox1, 0, 1);
+            tableLayoutPanel2.Controls.Add(reciptInput, 0, 1);
             tableLayoutPanel2.Location = new Point(3, 79);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
@@ -98,16 +98,16 @@
             label2.Text = "Receipt No";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // reciptInput
             // 
-            textBox1.AccessibleName = "reciptInput";
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Font = new Font("Segoe UI", 12F);
-            textBox1.Location = new Point(3, 38);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Ex:- SAMCT/2025-26/04 (Without #)";
-            textBox1.Size = new Size(452, 29);
-            textBox1.TabIndex = 1;
+            reciptInput.AccessibleName = "reciptInput";
+            reciptInput.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            reciptInput.Font = new Font("Segoe UI", 12F);
+            reciptInput.Location = new Point(3, 38);
+            reciptInput.Name = "reciptInput";
+            reciptInput.PlaceholderText = "Ex:- SAMCT/2025-26/04 (Without #)";
+            reciptInput.Size = new Size(452, 29);
+            reciptInput.TabIndex = 1;
             // 
             // label1
             // 
@@ -138,7 +138,7 @@
             tableLayoutPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel4.ColumnCount = 1;
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Controls.Add(textBox2, 0, 1);
+            tableLayoutPanel4.Controls.Add(mobileInput, 0, 1);
             tableLayoutPanel4.Controls.Add(label3, 0, 0);
             tableLayoutPanel4.Location = new Point(467, 79);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -148,16 +148,16 @@
             tableLayoutPanel4.Size = new Size(458, 70);
             tableLayoutPanel4.TabIndex = 3;
             // 
-            // textBox2
+            // mobileInput
             // 
-            textBox2.AccessibleName = "mobileInput";
-            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox2.Font = new Font("Segoe UI", 12F);
-            textBox2.Location = new Point(3, 38);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Mobile Number";
-            textBox2.Size = new Size(452, 29);
-            textBox2.TabIndex = 2;
+            mobileInput.AccessibleName = "mobileInput";
+            mobileInput.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            mobileInput.Font = new Font("Segoe UI", 12F);
+            mobileInput.Location = new Point(3, 38);
+            mobileInput.Name = "mobileInput";
+            mobileInput.PlaceholderText = "Mobile Number";
+            mobileInput.Size = new Size(452, 29);
+            mobileInput.TabIndex = 2;
             // 
             // label3
             // 
@@ -176,7 +176,7 @@
             tableLayoutPanel5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel5.ColumnCount = 1;
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Controls.Add(textBox3, 0, 1);
+            tableLayoutPanel5.Controls.Add(minAmountInput, 0, 1);
             tableLayoutPanel5.Controls.Add(label4, 0, 0);
             tableLayoutPanel5.Location = new Point(3, 155);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -186,16 +186,16 @@
             tableLayoutPanel5.Size = new Size(458, 70);
             tableLayoutPanel5.TabIndex = 4;
             // 
-            // textBox3
+            // minAmountInput
             // 
-            textBox3.AccessibleName = "minAmountInput";
-            textBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox3.Font = new Font("Segoe UI", 12F);
-            textBox3.Location = new Point(3, 38);
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "Enter Min Amount";
-            textBox3.Size = new Size(452, 29);
-            textBox3.TabIndex = 2;
+            minAmountInput.AccessibleName = "minAmountInput";
+            minAmountInput.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            minAmountInput.Font = new Font("Segoe UI", 12F);
+            minAmountInput.Location = new Point(3, 38);
+            minAmountInput.Name = "minAmountInput";
+            minAmountInput.PlaceholderText = "Enter Min Amount";
+            minAmountInput.Size = new Size(452, 29);
+            minAmountInput.TabIndex = 2;
             // 
             // label4
             // 
@@ -214,7 +214,7 @@
             tableLayoutPanel6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel6.ColumnCount = 1;
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel6.Controls.Add(textBox4, 0, 1);
+            tableLayoutPanel6.Controls.Add(maxAmountInput, 0, 1);
             tableLayoutPanel6.Controls.Add(label5, 0, 0);
             tableLayoutPanel6.Location = new Point(467, 155);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -225,15 +225,16 @@
             tableLayoutPanel6.Size = new Size(458, 70);
             tableLayoutPanel6.TabIndex = 5;
             // 
-            // textBox4
+            // maxAmountInput
             // 
-            textBox4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox4.Font = new Font("Segoe UI", 12F);
-            textBox4.Location = new Point(3, 38);
-            textBox4.Name = "textBox4";
-            textBox4.PlaceholderText = "Enter Max Amount";
-            textBox4.Size = new Size(452, 29);
-            textBox4.TabIndex = 2;
+            maxAmountInput.AccessibleName = "maxAmountInput";
+            maxAmountInput.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            maxAmountInput.Font = new Font("Segoe UI", 12F);
+            maxAmountInput.Location = new Point(3, 38);
+            maxAmountInput.Name = "maxAmountInput";
+            maxAmountInput.PlaceholderText = "Enter Max Amount";
+            maxAmountInput.Size = new Size(452, 29);
+            maxAmountInput.TabIndex = 2;
             // 
             // label5
             // 
@@ -267,13 +268,14 @@
             // 
             filterPaymentMode.AccessibleName = "filterPaymentMode";
             filterPaymentMode.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            filterPaymentMode.DropDownStyle = ComboBoxStyle.DropDownList;
             filterPaymentMode.Font = new Font("Segoe UI", 12F);
             filterPaymentMode.FormattingEnabled = true;
+            filterPaymentMode.Items.AddRange(new object[] { "Cash", "Online", "Cheque" });
             filterPaymentMode.Location = new Point(3, 38);
             filterPaymentMode.Name = "filterPaymentMode";
             filterPaymentMode.Size = new Size(452, 29);
             filterPaymentMode.TabIndex = 3;
-            filterPaymentMode.Text = "Select Payment Mode";
             // 
             // label8
             // 
@@ -292,7 +294,7 @@
             tableLayoutPanel10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel10.ColumnCount = 1;
             tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel10.Controls.Add(textBox8, 0, 1);
+            tableLayoutPanel10.Controls.Add(idNumberFilter, 0, 1);
             tableLayoutPanel10.Controls.Add(label9, 0, 0);
             tableLayoutPanel10.Location = new Point(467, 231);
             tableLayoutPanel10.Name = "tableLayoutPanel10";
@@ -302,14 +304,15 @@
             tableLayoutPanel10.Size = new Size(458, 70);
             tableLayoutPanel10.TabIndex = 9;
             // 
-            // textBox8
+            // idNumberFilter
             // 
-            textBox8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox8.Font = new Font("Segoe UI", 12F);
-            textBox8.Location = new Point(3, 38);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(452, 29);
-            textBox8.TabIndex = 2;
+            idNumberFilter.AccessibleName = "idNumberFilter";
+            idNumberFilter.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            idNumberFilter.Font = new Font("Segoe UI", 12F);
+            idNumberFilter.Location = new Point(3, 38);
+            idNumberFilter.Name = "idNumberFilter";
+            idNumberFilter.Size = new Size(452, 29);
+            idNumberFilter.TabIndex = 2;
             // 
             // label9
             // 
@@ -329,7 +332,7 @@
             tableLayoutPanel11.ColumnCount = 1;
             tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel11.Controls.Add(label10, 0, 0);
-            tableLayoutPanel11.Controls.Add(dateTimePicker1, 0, 1);
+            tableLayoutPanel11.Controls.Add(startDateFilter, 0, 1);
             tableLayoutPanel11.Location = new Point(3, 307);
             tableLayoutPanel11.Name = "tableLayoutPanel11";
             tableLayoutPanel11.RowCount = 2;
@@ -350,21 +353,22 @@
             label10.Text = "Start Date";
             label10.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // dateTimePicker1
+            // startDateFilter
             // 
-            dateTimePicker1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dateTimePicker1.Font = new Font("Segoe UI", 12F);
-            dateTimePicker1.Location = new Point(3, 38);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(452, 29);
-            dateTimePicker1.TabIndex = 2;
+            startDateFilter.AccessibleName = "startDateFilter";
+            startDateFilter.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            startDateFilter.Font = new Font("Segoe UI", 12F);
+            startDateFilter.Location = new Point(3, 38);
+            startDateFilter.Name = "startDateFilter";
+            startDateFilter.Size = new Size(452, 29);
+            startDateFilter.TabIndex = 2;
             // 
             // tableLayoutPanel12
             // 
             tableLayoutPanel12.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel12.ColumnCount = 1;
             tableLayoutPanel12.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel12.Controls.Add(dateTimePicker2, 0, 1);
+            tableLayoutPanel12.Controls.Add(endDateFilter, 0, 1);
             tableLayoutPanel12.Controls.Add(label11, 0, 0);
             tableLayoutPanel12.Location = new Point(467, 307);
             tableLayoutPanel12.Name = "tableLayoutPanel12";
@@ -374,14 +378,15 @@
             tableLayoutPanel12.Size = new Size(458, 70);
             tableLayoutPanel12.TabIndex = 11;
             // 
-            // dateTimePicker2
+            // endDateFilter
             // 
-            dateTimePicker2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dateTimePicker2.Font = new Font("Segoe UI", 12F);
-            dateTimePicker2.Location = new Point(3, 38);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(452, 29);
-            dateTimePicker2.TabIndex = 3;
+            endDateFilter.AccessibleName = "endDateFilter";
+            endDateFilter.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            endDateFilter.Font = new Font("Segoe UI", 12F);
+            endDateFilter.Location = new Point(3, 38);
+            endDateFilter.Name = "endDateFilter";
+            endDateFilter.Size = new Size(452, 29);
+            endDateFilter.TabIndex = 3;
             // 
             // label11
             // 
@@ -401,7 +406,7 @@
             tableLayoutPanel13.ColumnCount = 1;
             tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel13.Controls.Add(label12, 0, 0);
-            tableLayoutPanel13.Controls.Add(comboBox1, 0, 1);
+            tableLayoutPanel13.Controls.Add(tithiFilter, 0, 1);
             tableLayoutPanel13.Location = new Point(3, 383);
             tableLayoutPanel13.Name = "tableLayoutPanel13";
             tableLayoutPanel13.RowCount = 2;
@@ -422,16 +427,17 @@
             label12.Text = "Tithi";
             label12.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // comboBox1
+            // tithiFilter
             // 
-            comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox1.Font = new Font("Segoe UI", 12F);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(3, 38);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(452, 29);
-            comboBox1.TabIndex = 2;
-            comboBox1.Text = "Select Tithi";
+            tithiFilter.AccessibleName = "tithiFilter";
+            tithiFilter.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tithiFilter.Font = new Font("Segoe UI", 12F);
+            tithiFilter.FormattingEnabled = true;
+            tithiFilter.Location = new Point(3, 38);
+            tithiFilter.Name = "tithiFilter";
+            tithiFilter.Size = new Size(452, 29);
+            tithiFilter.TabIndex = 2;
+            tithiFilter.Text = "Select Tithi";
             // 
             // tableLayoutPanel1
             // 
@@ -480,15 +486,16 @@
             button1.TabIndex = 13;
             button1.Text = "Apply Now";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
-            // FrmPopup
+            // FrmDonationFillter
             // 
             AccessibleName = "Apply Filter";
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(952, 622);
             Controls.Add(tableLayoutPanel1);
-            Name = "FrmPopup";
+            Name = "FrmDonationFillter";
             Text = "Apply Filter ";
             Load += FrmPopup_Load;
             tableLayoutPanel2.ResumeLayout(false);
@@ -518,32 +525,32 @@
 
         private TableLayoutPanel tableLayoutPanel2;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox reciptInput;
         private Label label1;
         private TableLayoutPanel tableLayoutPanel3;
         private TableLayoutPanel tableLayoutPanel4;
-        private TextBox textBox2;
+        private TextBox mobileInput;
         private Label label3;
         private TableLayoutPanel tableLayoutPanel5;
-        private TextBox textBox3;
+        private TextBox minAmountInput;
         private Label label4;
         private TableLayoutPanel tableLayoutPanel6;
-        private TextBox textBox4;
+        private TextBox maxAmountInput;
         private Label label5;
         private TableLayoutPanel tableLayoutPanel9;
         private Label label8;
         private TableLayoutPanel tableLayoutPanel10;
-        private TextBox textBox8;
+        private TextBox idNumberFilter;
         private Label label9;
         private TableLayoutPanel tableLayoutPanel11;
         private Label label10;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker startDateFilter;
         private TableLayoutPanel tableLayoutPanel12;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker endDateFilter;
         private Label label11;
         private TableLayoutPanel tableLayoutPanel13;
         private Label label12;
-        private ComboBox comboBox1;
+        private ComboBox tithiFilter;
         private TableLayoutPanel tableLayoutPanel1;
         private Button button1;
         private ComboBox filterPaymentMode;

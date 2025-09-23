@@ -84,4 +84,5 @@ C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.genruntimeconfig.
 C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\ref\Maa.dll
 C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.FrmAddDonation.resources
 C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.FrmListDonations.resources
-C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.FrmPopup.resources
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.FrmEditDonation.resources
+C:\Users\DELL\Desktop\Maa\Maa\Maa\obj\Debug\net8.0-windows\Maa.FrmDonationFillter.resources

@@ -4,10 +4,13 @@
     <Compile Update="FrmAddDonation.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmEditDonation.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmListDonations.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmPopup.cs">
+    <Compile Update="FrmDonationFillter.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmRolePermission.cs">

@@ -33,11 +33,11 @@
         {
             donationTableList = new DataGridView();
             tableLayoutPanel1 = new TableLayoutPanel();
-            label1 = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
             button2 = new Button();
             button1 = new Button();
             applyFilter = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)donationTableList).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -46,12 +46,13 @@
             // donationTableList
             // 
             donationTableList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            donationTableList.BackgroundColor = Color.White;
             donationTableList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            donationTableList.Location = new Point(0, 89);
+            donationTableList.Location = new Point(3, 89);
             donationTableList.Name = "donationTableList";
             donationTableList.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
             donationTableList.ScrollBars = ScrollBars.Vertical;
-            donationTableList.Size = new Size(800, 361);
+            donationTableList.Size = new Size(982, 498);
             donationTableList.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -60,28 +61,15 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 1, 1);
+            tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Location = new Point(0, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 41.9753075F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 58.0246925F));
-            tableLayoutPanel1.Size = new Size(800, 81);
+            tableLayoutPanel1.Size = new Size(991, 81);
             tableLayoutPanel1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label1.Location = new Point(3, 0);
-            label1.Name = "label1";
-            label1.Padding = new Padding(50, 0, 0, 0);
-            label1.Size = new Size(394, 34);
-            label1.TabIndex = 0;
-            label1.Text = "List Donation";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel2
             // 
@@ -93,7 +81,7 @@
             tableLayoutPanel2.Controls.Add(button2, 2, 0);
             tableLayoutPanel2.Controls.Add(button1, 1, 0);
             tableLayoutPanel2.Controls.Add(applyFilter, 0, 0);
-            tableLayoutPanel2.Location = new Point(403, 37);
+            tableLayoutPanel2.Location = new Point(594, 37);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
@@ -148,11 +136,24 @@
             applyFilter.UseVisualStyleBackColor = false;
             applyFilter.MouseClick += modalOpen;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label1.Location = new Point(3, 0);
+            label1.Name = "label1";
+            label1.Padding = new Padding(50, 0, 0, 0);
+            label1.Size = new Size(489, 34);
+            label1.TabIndex = 0;
+            label1.Text = "List Donation";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // FrmListDonations
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(991, 588);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(donationTableList);
             Name = "FrmListDonations";
