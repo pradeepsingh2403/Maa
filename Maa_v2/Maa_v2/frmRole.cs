@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +18,14 @@ namespace Maa
             InitializeComponent();
             CreateDataGridView();
             LoadRoles();
+            btnDelete.Enabled = false;
+            RolePermission permission = GlobalFunctions.GetRolePermission(GlobalFunctions.role, this.Name);
+            if (permission != null)
+            {
+                btnAdd.Enabled = permission.CanSave;
+                btnDelete.Enabled = permission.CanDelete;
+            }
+
         }
 
         private DataGridView dgv;
@@ -71,17 +79,17 @@ namespace Maa
             };
         }
 
-        // --- Load roles from MySQL ---
+        // --- Load roles from SQL Server ---
         private void LoadRoles()
         {
             try
             {
                 string connStr = GlobalFunctions.ConnString;
-                using (var con = new MySqlConnection(connStr))
+                using (var con = new SqlConnection(connStr))
                 {
                     con.Open();
                     string sql = "SELECT id, name, created_at, updated_at FROM roles";
-                    using (var adapter = new MySqlDataAdapter(sql, con))
+                    using (var adapter = new SqlDataAdapter(sql, con))
                     {
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
@@ -118,6 +126,15 @@ namespace Maa
                 DataGridViewRow row = dgv.Rows[e.RowIndex];
                 selectedRoleId = Convert.ToInt32(row.Cells["id"].Value); // store the ID
                 txtRoleName.Text = row.Cells["name"].Value.ToString();   // show name in textbox
+                btnAdd.Enabled = false; // disable Add button when editing
+                btnDelete.Enabled = true;
+                RolePermission permission = GlobalFunctions.GetRolePermission(GlobalFunctions.role, this.Name);
+                if (permission != null)
+                {
+                    btnAdd.Enabled = permission.CanSave;
+                    btnDelete.Enabled = permission.CanDelete;
+                }
+
             }
         }
 
@@ -142,12 +159,12 @@ namespace Maa
             try
             {
                 string connStr = GlobalFunctions.ConnString;
-                using (var con = new MySqlConnection(connStr))
+                using (var con = new SqlConnection(connStr))
                 {
                     con.Open();
-                    string sql = "INSERT INTO roles (name, created_at, updated_at) VALUES (@name, NOW(), NOW())";
+                    string sql = "INSERT INTO roles (name, created_at, updated_at) VALUES (@name, GETDATE(), GETDATE())";
 
-                    using (var cmd = new MySqlCommand(sql, con))
+                    using (var cmd = new SqlCommand(sql, con))
                     {
                         cmd.Parameters.AddWithValue("@name", roleName);
                         int rowsAffected = cmd.ExecuteNonQuery();
@@ -184,12 +201,12 @@ namespace Maa
                 try
                 {
                     string connStr = GlobalFunctions.ConnString;
-                    using (var con = new MySqlConnection(connStr))
+                    using (var con = new SqlConnection(connStr))
                     {
                         con.Open();
                         string sql = "DELETE FROM roles WHERE id=@id";
 
-                        using (var cmd = new MySqlCommand(sql, con))
+                        using (var cmd = new SqlCommand(sql, con))
                         {
                             cmd.Parameters.AddWithValue("@id", selectedRoleId);
                             int rowsAffected = cmd.ExecuteNonQuery();
@@ -200,6 +217,8 @@ namespace Maa
                                 txtRoleName.Clear();
                                 selectedRoleId = -1;
                                 LoadRoles(); // refresh DataGridView
+                                btnDelete.Enabled = false;
+                                btnAdd.Enabled = true;
                             }
                             else
                             {

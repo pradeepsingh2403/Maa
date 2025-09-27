@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +20,16 @@ namespace Maa
             LoadSchemes();
             LoadStatusComboFromDb(cmbStatus);
             dgv.CellDoubleClick += dgv_CellDoubleClick; // attach event
+            btnAdd.Enabled = true;
+            btnUpdate.Enabled = false;
+            btnDelete.Enabled = false;
+            RolePermission permission = GlobalFunctions.GetRolePermission(GlobalFunctions.role, this.Name);
+            if (permission != null)
+            {
+                btnAdd.Enabled = permission.CanSave;
+                btnUpdate.Enabled = permission.CanUpdate;
+                btnDelete.Enabled = permission.CanDelete;
+            }
         }
 
         private void frmAddSchema_Load(object sender, EventArgs e)
@@ -80,13 +90,13 @@ namespace Maa
             {
                 string connStr = GlobalFunctions.ConnString;
 
-                using (var con = new MySqlConnection(connStr))
+                using (var con = new SqlConnection(connStr))
                 {
                     con.Open();
                     string sql = @"SELECT id, name, status, created_at, updated_at 
                            FROM schemes";
 
-                    using (var adapter = new MySqlDataAdapter(sql, con))
+                    using (var adapter = new SqlDataAdapter(sql, con))
                     {
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
@@ -123,14 +133,14 @@ namespace Maa
             try
             {
                 string connStr = GlobalFunctions.ConnString;
-                using (var con = new MySqlConnection(connStr))
+                using (var con = new SqlConnection(connStr))
                 {
                     con.Open();
                     string sql = "SELECT id, status FROM status ORDER BY status";
 
-                    using (var cmd = new MySqlCommand(sql, con))
+                    using (var cmd = new SqlCommand(sql, con))
                     {
-                        using (var adapter = new MySqlDataAdapter(cmd))
+                        using (var adapter = new SqlDataAdapter(cmd))
                         {
                             DataTable dt = new DataTable();
                             adapter.Fill(dt);
@@ -184,12 +194,12 @@ namespace Maa
             try
             {
                 string connStr = GlobalFunctions.ConnString;
-                using (var con = new MySqlConnection(connStr))
+                using (var con = new SqlConnection(connStr))
                 {
                     con.Open();
                     string sql = @"DELETE FROM schemes WHERE id = @id";
 
-                    using (var cmd = new MySqlCommand(sql, con))
+                    using (var cmd = new SqlCommand(sql, con))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
 
@@ -202,6 +212,9 @@ namespace Maa
                             txtSchemeName.Text = "";
                             cmbStatus.SelectedIndex = 0;
                             txtSchemeName.Focus();
+                            btnAdd.Enabled = true;
+                            btnUpdate.Enabled = false;
+                            btnDelete.Enabled = false;
                         }
                         else
                         {
@@ -234,6 +247,17 @@ namespace Maa
 
                 // Store selected ID for update/delete later
                 selectedSchemeId = Convert.ToInt32(row.Cells["id"].Value);
+                btnAdd.Enabled = false;
+                btnUpdate.Enabled = true;
+                btnDelete.Enabled = true;
+                RolePermission permission = GlobalFunctions.GetRolePermission(GlobalFunctions.role, this.Name);
+                if (permission != null)
+                {
+                    btnAdd.Enabled = permission.CanSave;
+                    btnUpdate.Enabled = permission.CanUpdate;
+                    btnDelete.Enabled = permission.CanDelete;
+                }
+
             }
         }
 
@@ -250,14 +274,14 @@ namespace Maa
             {
                 string connStr = GlobalFunctions.ConnString;
 
-                using (var con = new MySqlConnection(connStr))
+                using (var con = new SqlConnection(connStr))
                 {
                     con.Open();
                     string sql = @"INSERT INTO schemes 
                            (name, status, created_at, updated_at) 
-                           VALUES (@name, @status, NOW(), NOW())";
+                           VALUES (@name, @status, GETDATE(), GETDATE())";
 
-                    using (var cmd = new MySqlCommand(sql, con))
+                    using (var cmd = new SqlCommand(sql, con))
                     {
                         cmd.Parameters.AddWithValue("@name", name);
                         cmd.Parameters.AddWithValue("@status", status);
@@ -305,16 +329,16 @@ namespace Maa
             try
             {
                 string connStr = GlobalFunctions.ConnString;
-                using (var con = new MySqlConnection(connStr))
+                using (var con = new SqlConnection(connStr))
                 {
                     con.Open();
                     string sql = @"UPDATE schemes 
                            SET name = @name, 
                                status = @status, 
-                               updated_at = NOW() 
+                               updated_at = GETDATE() 
                            WHERE id = @id";
 
-                    using (var cmd = new MySqlCommand(sql, con))
+                    using (var cmd = new SqlCommand(sql, con))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@name", name);
@@ -329,6 +353,9 @@ namespace Maa
                             txtSchemeName.Text = "";
                             cmbStatus.SelectedIndex = 0;
                             txtSchemeName.Focus();
+                            btnAdd.Enabled = true;
+                            btnUpdate.Enabled = false;
+                            btnDelete.Enabled = false;
                         }
                         else
                         {

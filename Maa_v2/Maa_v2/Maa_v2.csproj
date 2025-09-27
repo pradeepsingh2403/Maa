@@ -126,6 +126,10 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="MySql.Data, Version=9.4.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.9.4.0\lib\net48\MySql.Data.dll</HintPath>
     </Reference>
@@ -175,12 +179,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmAddDonationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,23 +191,29 @@
     <Compile Include="frmAddScheme.Designer.cs">
       <DependentUpon>frmAddScheme.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmApplyFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmApplyFilter.Designer.cs">
+      <DependentUpon>frmApplyFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDashboard.Designer.cs">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmListDonations.cs">
+    <Compile Include="frmDonationList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmListDonations.Designer.cs">
-      <DependentUpon>FrmListDonations.cs</DependentUpon>
+    <Compile Include="frmDonationList.Designer.cs">
+      <DependentUpon>frmDonationList.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPopup.cs">
+    <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPopup.Designer.cs">
-      <DependentUpon>FrmPopup.cs</DependentUpon>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPreview.cs">
       <SubType>Form</SubType>
@@ -250,20 +254,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RolePermission.cs" />
+    <Compile Include="rpt_GetDonationReceiept.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_GetDonationReceiept.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmAddDonationForm.resx">
       <DependentUpon>frmAddDonationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddScheme.resx">
       <DependentUpon>frmAddScheme.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmApplyFilter.resx">
+      <DependentUpon>frmApplyFilter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmListDonations.resx">
-      <DependentUpon>FrmListDonations.cs</DependentUpon>
+    <EmbeddedResource Include="frmDonationList.resx">
+      <DependentUpon>frmDonationList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPopup.resx">
-      <DependentUpon>FrmPopup.cs</DependentUpon>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPreview.resx">
       <DependentUpon>frmPreview.cs</DependentUpon>
@@ -303,6 +316,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="rpt_GetDonationReceiept.xsc">
+      <DependentUpon>rpt_GetDonationReceiept.xsd</DependentUpon>
+    </None>
+    <None Include="rpt_GetDonationReceiept.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rpt_GetDonationReceiept.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="rpt_GetDonationReceiept.xss">
+      <DependentUpon>rpt_GetDonationReceiept.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

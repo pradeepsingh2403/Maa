@@ -1,19 +1,9 @@
-﻿using System.Windows.Forms;
-using System.Drawing;
-
-namespace Maa
+﻿namespace Maa
 {
     partial class frmRolePermission
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -25,76 +15,79 @@ namespace Maa
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            groupBox1 = new GroupBox();
-            btnSubmit = new Button();
-            cmbRole = new ComboBox();
-            label1 = new Label();
-            groupBox1.SuspendLayout();
-            SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.cmbRole = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
+            this.SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = SystemColors.ButtonHighlight;
-            groupBox1.Controls.Add(btnSubmit);
-            groupBox1.Controls.Add(cmbRole);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(12, 9);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1602, 150);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox1.Controls.Add(this.btnSubmit);
+            this.groupBox1.Controls.Add(this.cmbRole);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(11, 7);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(1442, 120);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
             // 
             // btnSubmit
             // 
-            btnSubmit.Location = new Point(672, 59);
-            btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(112, 34);
-            btnSubmit.TabIndex = 2;
-            btnSubmit.Text = "Submit";
-            btnSubmit.UseVisualStyleBackColor = true;
-            btnSubmit.Click += this.btnSubmit_Click;
+            this.btnSubmit.Location = new System.Drawing.Point(602, 42);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(101, 39);
+            this.btnSubmit.TabIndex = 2;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // cmbRole
             // 
-            cmbRole.FormattingEnabled = true;
-            cmbRole.Location = new Point(202, 60);
-            cmbRole.Name = "cmbRole";
-            cmbRole.Size = new Size(432, 33);
-            cmbRole.TabIndex = 1;
+            this.cmbRole.FormattingEnabled = true;
+            this.cmbRole.Location = new System.Drawing.Point(182, 48);
+            this.cmbRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbRole.Name = "cmbRole";
+            this.cmbRole.Size = new System.Drawing.Size(389, 28);
+            this.cmbRole.TabIndex = 1;
+            this.cmbRole.SelectedIndexChanged += new System.EventHandler(this.cmbRole_SelectedIndexChanged);
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(94, 60);
-            label1.Name = "label1";
-            label1.Size = new Size(46, 25);
-            label1.TabIndex = 0;
-            label1.Text = "Role";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(85, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Role";
             // 
             // frmRolePermission
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1626, 629);
-            Controls.Add(groupBox1);
-            Name = "frmRolePermission";
-            Text = "Role Permission";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1463, 503);
+            this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "frmRolePermission";
+            this.Text = "Role Permission";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
 
-        private GroupBox groupBox1;
-        private Label label1;
-        private Button btnSubmit;
-        private ComboBox cmbRole;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.ComboBox cmbRole;
     }
 }

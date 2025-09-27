@@ -69,6 +69,8 @@ namespace Maa
             this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -160,6 +162,7 @@ namespace Maa
             this.txtReceiptNumber.Name = "txtReceiptNumber";
             this.txtReceiptNumber.Size = new System.Drawing.Size(284, 26);
             this.txtReceiptNumber.TabIndex = 15;
+            this.txtReceiptNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtReceiptNumber_KeyPress);
             // 
             // txtDonationAmount
             // 
@@ -169,6 +172,7 @@ namespace Maa
             this.txtDonationAmount.Name = "txtDonationAmount";
             this.txtDonationAmount.Size = new System.Drawing.Size(284, 26);
             this.txtDonationAmount.TabIndex = 16;
+            this.txtDonationAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonationAmount_KeyPress);
             // 
             // txtGotram
             // 
@@ -187,6 +191,7 @@ namespace Maa
             this.txWhatsAppNumber.Name = "txWhatsAppNumber";
             this.txWhatsAppNumber.Size = new System.Drawing.Size(284, 26);
             this.txWhatsAppNumber.TabIndex = 13;
+            this.txWhatsAppNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txWhatsAppNumber_KeyPress);
             // 
             // txtMobileNumber
             // 
@@ -196,6 +201,7 @@ namespace Maa
             this.txtMobileNumber.Name = "txtMobileNumber";
             this.txtMobileNumber.Size = new System.Drawing.Size(284, 26);
             this.txtMobileNumber.TabIndex = 12;
+            this.txtMobileNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobileNumber_KeyPress);
             // 
             // txtAlternateNumber
             // 
@@ -205,6 +211,7 @@ namespace Maa
             this.txtAlternateNumber.Name = "txtAlternateNumber";
             this.txtAlternateNumber.Size = new System.Drawing.Size(284, 26);
             this.txtAlternateNumber.TabIndex = 14;
+            this.txtAlternateNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAlternateNumber_KeyPress);
             // 
             // txtIDNumber
             // 
@@ -406,30 +413,59 @@ namespace Maa
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(1023, 413);
+            this.btnSave.Location = new System.Drawing.Point(827, 413);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(101, 27);
+            this.btnSave.Size = new System.Drawing.Size(101, 36);
             this.btnSave.TabIndex = 16;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(1138, 413);
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(1148, 413);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(101, 27);
+            this.btnCancel.Size = new System.Drawing.Size(101, 36);
             this.btnCancel.TabIndex = 17;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(934, 413);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(101, 36);
+            this.btnUpdate.TabIndex = 16;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(1041, 413);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(101, 36);
+            this.btnDelete.TabIndex = 16;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // frmAddDonationForm
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(1356, 468);
             this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -488,6 +524,7 @@ namespace Maa
         private TextBox txtMobileNumber;
         private TextBox txtReceiptNumber;
         private Label label8;
-        
+        private Button btnUpdate;
+        private Button btnDelete;
     }
 }

@@ -32,107 +32,116 @@ namespace Maa
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox1 = new GroupBox();
-            btnDelete = new Button();
-            btnUpdate = new Button();
-            btnAdd = new Button();
-            cmbStatus = new ComboBox();
-            txtSchemeName = new TextBox();
-            label2 = new Label();
-            label1 = new Label();
-            groupBox1.SuspendLayout();
-            SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.txtSchemeName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
+            this.SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = SystemColors.ButtonHighlight;
-            groupBox1.Controls.Add(btnDelete);
-            groupBox1.Controls.Add(btnUpdate);
-            groupBox1.Controls.Add(btnAdd);
-            groupBox1.Controls.Add(cmbStatus);
-            groupBox1.Controls.Add(txtSchemeName);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(12, 2);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(985, 172);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox1.Controls.Add(this.btnDelete);
+            this.groupBox1.Controls.Add(this.btnUpdate);
+            this.groupBox1.Controls.Add(this.btnAdd);
+            this.groupBox1.Controls.Add(this.cmbStatus);
+            this.groupBox1.Controls.Add(this.txtSchemeName);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(11, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(886, 138);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(776, 98);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(112, 34);
-            btnDelete.TabIndex = 3;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
-            btnDelete.Click += btnDelete_Click;
+            this.btnDelete.Location = new System.Drawing.Point(698, 94);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(101, 40);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(776, 58);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(112, 34);
-            btnUpdate.TabIndex = 3;
-            btnUpdate.Text = "Update";
-            btnUpdate.UseVisualStyleBackColor = true;
-            btnUpdate.Click += btnUpdate_Click;
+            this.btnUpdate.Location = new System.Drawing.Point(698, 55);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(101, 35);
+            this.btnUpdate.TabIndex = 3;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(776, 18);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(112, 34);
-            btnAdd.TabIndex = 3;
-            btnAdd.Text = "Add";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
+            this.btnAdd.Location = new System.Drawing.Point(698, 14);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(101, 37);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // cmbStatus
             // 
-            cmbStatus.FormattingEnabled = true;
-            cmbStatus.Location = new Point(324, 78);
-            cmbStatus.Name = "cmbStatus";
-            cmbStatus.Size = new Size(421, 33);
-            cmbStatus.TabIndex = 2;
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Location = new System.Drawing.Point(292, 62);
+            this.cmbStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(379, 28);
+            this.cmbStatus.TabIndex = 2;
             // 
             // txtSchemeName
             // 
-            txtSchemeName.Location = new Point(324, 21);
-            txtSchemeName.Name = "txtSchemeName";
-            txtSchemeName.Size = new Size(421, 31);
-            txtSchemeName.TabIndex = 1;
+            this.txtSchemeName.Location = new System.Drawing.Point(292, 17);
+            this.txtSchemeName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSchemeName.Name = "txtSchemeName";
+            this.txtSchemeName.Size = new System.Drawing.Size(379, 26);
+            this.txtSchemeName.TabIndex = 1;
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(103, 81);
-            label2.Name = "label2";
-            label2.Size = new Size(60, 25);
-            label2.TabIndex = 0;
-            label2.Text = "Status";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(93, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Status";
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(103, 27);
-            label1.Name = "label1";
-            label1.Size = new Size(126, 25);
-            label1.TabIndex = 0;
-            label1.Text = "Scheme Name";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(93, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Scheme Name";
             // 
             // frmAddScheme
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1697, 564);
-            Controls.Add(groupBox1);
-            Name = "frmAddScheme";
-            Text = "Add Scheme";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1527, 451);
+            this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "frmAddScheme";
+            this.Text = "Add Scheme";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion

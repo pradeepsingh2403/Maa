@@ -17,7 +17,7 @@ namespace Maa_v2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPreview());
+            Application.Run(new frmDonationList());
         }
     }
 }

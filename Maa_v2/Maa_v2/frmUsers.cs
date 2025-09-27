@@ -1,8 +1,9 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Text;
+using System.Web.Security;
 using System.Windows.Forms;
 
 namespace Maa
@@ -22,6 +23,12 @@ namespace Maa
             LoadRolesCombo(cmbRole);
             LoadStatusComboFromDb(cmbStatus);
             GenerateZigZagPassword();
+            RolePermission permission = GlobalFunctions.GetRolePermission(GlobalFunctions.role, this.Name);
+            if (permission != null)
+            {
+                btnAdd.Enabled = permission.CanSave;
+                btnUpdate.Enabled = permission.CanDelete;
+            }
         }
         private void GenerateZigZagPassword()
         {
@@ -76,13 +83,13 @@ namespace Maa
             {
                 string connStr = GlobalFunctions.ConnString;
 
-                using (var con = new MySqlConnection(connStr))
+                using (var con = new SqlConnection(connStr))
                 {
                     con.Open();
                     string sql = @"SELECT id, name, image, email, phone,password, status, role_id, created_at, updated_at 
                            FROM admins";
 
-                    using (var adapter = new MySqlDataAdapter(sql, con))
+                    using (var adapter = new SqlDataAdapter(sql, con))
                     {
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
@@ -145,6 +152,14 @@ namespace Maa
 
                 // Store selected ID
                 selectedUserId = Convert.ToInt32(row.Cells["id"].Value);
+                btnAdd.Enabled=false; // Disable Add button when editing
+                RolePermission permission = GlobalFunctions.GetRolePermission(GlobalFunctions.role, this.Name);
+                if (permission != null)
+                {
+                    btnAdd.Enabled = permission.CanSave;
+                    btnUpdate.Enabled = permission.CanUpdate;
+                }
+
             }
         }
 
@@ -174,14 +189,14 @@ namespace Maa
             try
             {
                 string connStr = GlobalFunctions.ConnString;
-                using (var con = new MySqlConnection(connStr))
+                using (var con = new SqlConnection(connStr))
                 {
                     con.Open();
                     string sql = @"INSERT INTO admins 
                            (name, image, email, phone, password, status, role_id, created_at, updated_at) 
-                           VALUES (@name, @image, @email, @phone, @password, @status, @role_id, NOW(), NOW())";
+                           VALUES (@name, @image, @email, @phone, @password, @status, @role_id, GETDATE(), GETDATE())";
 
-                    using (var cmd = new MySqlCommand(sql, con))
+                    using (var cmd = new SqlCommand(sql, con))
                     {
                         cmd.Parameters.AddWithValue("@name", name);
                         cmd.Parameters.AddWithValue("@email", email);
@@ -242,7 +257,7 @@ namespace Maa
             try
             {
                 string connStr = GlobalFunctions.ConnString;
-                using (var con = new MySqlConnection(connStr))
+                using (var con = new SqlConnection(connStr))
                 {
                     con.Open();
                     string sql = @"UPDATE admins
@@ -252,10 +267,10 @@ namespace Maa
                                password = @password,
                                role_id = @role_id,
                                status = @status,
-                               updated_at = NOW()
+                               updated_at = GETDATE()
                            WHERE id = @id";
 
-                    using (var cmd = new MySqlCommand(sql, con))
+                    using (var cmd = new SqlCommand(sql, con))
                     {
                         cmd.Parameters.AddWithValue("@name", name);
                         cmd.Parameters.AddWithValue("@email", email);
@@ -271,6 +286,9 @@ namespace Maa
                         {
                             MessageBox.Show("Admin updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             LoadUsers(); // Refresh DataGridView
+                            ClearData();
+                            btnUpdate.Enabled = false;
+                            btnAdd.Enabled = true;
                         }
                         else
                         {
@@ -290,14 +308,14 @@ namespace Maa
             try
             {
                 string connStr = GlobalFunctions.ConnString;
-                using (var con = new MySqlConnection(connStr))
+                using (var con = new SqlConnection(connStr))
                 {
                     con.Open();
                     string sql = "SELECT id, name FROM roles ORDER BY name";
 
-                    using (var cmd = new MySqlCommand(sql, con))
+                    using (var cmd = new SqlCommand(sql, con))
                     {
-                        using (var adapter = new MySqlDataAdapter(cmd))
+                        using (var adapter = new SqlDataAdapter(cmd))
                         {
                             DataTable dt = new DataTable();
                             adapter.Fill(dt);
@@ -320,14 +338,14 @@ namespace Maa
             try
             {
                 string connStr = GlobalFunctions.ConnString;
-                using (var con = new MySqlConnection(connStr))
+                using (var con = new SqlConnection(connStr))
                 {
                     con.Open();
                     string sql = "SELECT id, status FROM status ORDER BY status";
 
-                    using (var cmd = new MySqlCommand(sql, con))
+                    using (var cmd = new SqlCommand(sql, con))
                     {
-                        using (var adapter = new MySqlDataAdapter(cmd))
+                        using (var adapter = new SqlDataAdapter(cmd))
                         {
                             DataTable dt = new DataTable();
                             adapter.Fill(dt);

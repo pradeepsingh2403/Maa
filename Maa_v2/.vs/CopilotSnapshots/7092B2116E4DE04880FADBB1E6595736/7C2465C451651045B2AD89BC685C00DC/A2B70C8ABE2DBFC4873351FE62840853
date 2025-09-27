@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Maa
+{
+    public static class GlobalFunctions
+    {
+        // SQL Server connection string example
+        public static string ConnString = "Server=localhost;Database=donation;User Id=sa;Password=your_password;Trusted_Connection=False;";
+    }
+}

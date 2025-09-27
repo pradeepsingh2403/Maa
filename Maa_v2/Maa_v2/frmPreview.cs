@@ -1,56 +1,61 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
 using Maa;
-using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace Maa_v2
 {
     public partial class frmPreview : Form
     {
-        public frmPreview()
+        private string _receiptNo;  // store receipt no
+
+        // Constructor receives ReceiptNo from caller
+        public frmPreview(string receiptNo)
         {
             InitializeComponent();
+            _receiptNo = receiptNo;
         }
 
         private void frmPreview_Load(object sender, EventArgs e)
         {
             ShowInvoiceReport();
         }
+
         private void ShowInvoiceReport()
         {
             try
             {
-                // 1. Load the report file from the solution folder (where the EXE runs)
                 string reportPath = System.IO.Path.Combine(Application.StartupPath, "InvoiceAbove2000.rpt");
                 ReportDocument rptDoc = new ReportDocument();
                 rptDoc.Load(reportPath);
 
-                // 2. Fetch data from MySQL
                 string connStr = GlobalFunctions.ConnString;
-                using (MySqlConnection con = new MySqlConnection(connStr))
+                using (SqlConnection con = new SqlConnection(connStr))
                 {
-                    con.Open();
-                    string query = @"SELECT id, donor_name, donation_amount, payment_mode, donation_date 
-                                     FROM donations ORDER BY id DESC LIMIT 1"; // Example
+                    string query = @"SELECT *
+                             FROM donations
+                             WHERE receipt_number = @receiptNo";
 
-                    MySqlDataAdapter da = new MySqlDataAdapter(query, con);
-                    DataTable dt = new DataTable("donations"); // Set table name to match report
-                    da.Fill(dt);
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@receiptNo", _receiptNo);
 
-                    // 3. Set the data source for the report
-                    rptDoc.SetDataSource(dt);
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds, "Donations");   // Table name must match what .rpt was designed with
 
-                    // 4. Assign report to viewer
-                    crystalReportViewer1.ReportSource = rptDoc;
-                    crystalReportViewer1.Refresh();
+                        if (ds.Tables[0].Rows.Count == 0)
+                        {
+                            MessageBox.Show($"No data found for Receipt No: {_receiptNo}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+
+                        rptDoc.SetDataSource(ds.Tables["Donations"]);
+                        crystalReportViewer1.ReportSource = rptDoc;
+                        crystalReportViewer1.Refresh();
+                    }
                 }
             }
             catch (Exception ex)
@@ -58,6 +63,5 @@ namespace Maa_v2
                 MessageBox.Show("Error showing report: " + ex.Message);
             }
         }
-
-        }
     }
+}

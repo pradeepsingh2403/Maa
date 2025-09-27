@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Maa_v2;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -131,7 +132,7 @@ namespace Maa
         }
         private void listDonationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmListDonations dashboard = new FrmListDonations();
+            frmDonationList dashboard = new frmDonationList();
             dashboard.MdiParent = this;   // set MDI parent
             dashboard.WindowState = FormWindowState.Maximized; // optional (fill parent)
             dashboard.Show();
@@ -163,6 +164,14 @@ namespace Maa
             schema.MdiParent = this;   // set MDI parent
             schema.WindowState = FormWindowState.Normal; // optional (fill parent)
             schema.Show();
+        }
+
+        private void addRolePermissionToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frmRolePermission rolePermission = new frmRolePermission();
+            rolePermission.MdiParent = this;   // set MDI parent
+            rolePermission.WindowState = FormWindowState.Normal; // optional (fill parent)
+            rolePermission.Show();
         }
     }
 }
