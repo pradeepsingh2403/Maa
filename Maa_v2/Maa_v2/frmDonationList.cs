@@ -1,13 +1,7 @@
 ﻿using Maa;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -15,7 +9,6 @@ namespace Maa_v2
 {
     public partial class frmDonationList : Form
     {
-
         public frmDonationList()
         {
             InitializeComponent();
@@ -26,6 +19,9 @@ namespace Maa_v2
             donationTableList.AllowUserToAddRows = false;
             donationTableList.AllowUserToDeleteRows = false;
             donationTableList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Handle button clicks in grid
+            donationTableList.CellContentClick += donationTableList_CellContentClick;
         }
 
         private void frmDonationList_Load(object sender, EventArgs e)
@@ -33,67 +29,7 @@ namespace Maa_v2
             LoadDonationData();
         }
 
-        private void LoadDonationList()
-        {
-            try
-            {
-                using (SqlConnection con = new SqlConnection(GlobalFunctions.ConnString))
-                {
-                    string query = @"
-                        SELECT 
-                            receipt_number AS [Receipt Number],
-                            donor_name AS [Donor Name],
-                            donation_amount AS [Donor Amount],
-                            payment_mode AS [Payment Mode],
-                            mobile_number AS [Mobile],
-                            gotra AS [Gotra],
-                            created_at AS [Created At]
-                        FROM donations
-                        WHERE CAST(created_at AS DATE) <= CAST(GETDATE() - 10 AS DATE)";
-
-                    SqlDataAdapter da = new SqlDataAdapter(query, con);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    donationTableList.DataSource = dt;
-
-                    // Optional: Format Created At column
-                    if (donationTableList.Columns["Created At"] != null)
-                    {
-                        donationTableList.Columns["Created At"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading donation list: " + ex.Message,
-                    "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void BtnApplyFilter_Click(object sender, EventArgs e)
-        {
-            // Filter logic here
-            using (frmApplyFilter filterForm = new frmApplyFilter())
-            {
-                if (filterForm.ShowDialog() == DialogResult.OK)
-                {
-                    // Apply filters using the parameters from filter form
-                    LoadDonationData(
-                        receiptNo: filterForm.ReceiptNo,
-                        mobileNumber: filterForm.MobileNumber,
-                        minAmount: filterForm.MinAmount,
-                        maxAmount: filterForm.MaxAmount,
-                        paymentMode: filterForm.PaymentMode,
-                        idNumber: filterForm.IdNumber,
-                        startDate: filterForm.StartDate,
-                        endDate: filterForm.EndDate,
-                        tithi: "" + filterForm.Tithi
-                    );
-                }
-            }
-        }
-
+        #region Load Donation Data
 
         private void LoadDonationData(
             string receiptNo = "",
@@ -125,12 +61,11 @@ namespace Maa_v2
                              FROM donations
                              WHERE 1=1";
 
-                    // Dynamic filters
                     if (!string.IsNullOrEmpty(receiptNo))
                         query += " AND receipt_number LIKE @ReceiptNo";
 
                     if (!string.IsNullOrEmpty(mobileNumber))
-                        query += " AND mobile_number LIKE @MobileNumber";
+                        query += " AND mobile_number = @MobileNumber";
 
                     if (minAmount.HasValue)
                         query += " AND donation_amount >= @MinAmount";
@@ -159,7 +94,7 @@ namespace Maa_v2
                             cmd.Parameters.AddWithValue("@ReceiptNo", "%" + receiptNo + "%");
 
                         if (!string.IsNullOrEmpty(mobileNumber))
-                            cmd.Parameters.AddWithValue("@MobileNumber", "%" + mobileNumber + "%");
+                            cmd.Parameters.AddWithValue("@MobileNumber", mobileNumber);
 
                         if (minAmount.HasValue)
                             cmd.Parameters.AddWithValue("@MinAmount", minAmount.Value);
@@ -173,10 +108,10 @@ namespace Maa_v2
                         if (!string.IsNullOrEmpty(idNumber))
                             cmd.Parameters.AddWithValue("@IdNumber", "%" + idNumber + "%");
 
-                        if (startDate.HasValue && startDate.Value > (DateTime)System.Data.SqlTypes.SqlDateTime.MinValue)
+                        if (startDate.HasValue)
                             cmd.Parameters.AddWithValue("@StartDate", startDate.Value);
 
-                        if (endDate.HasValue && endDate.Value > (DateTime)System.Data.SqlTypes.SqlDateTime.MinValue)
+                        if (endDate.HasValue)
                             cmd.Parameters.AddWithValue("@EndDate", endDate.Value);
 
                         if (!string.IsNullOrEmpty(tithi))
@@ -187,6 +122,21 @@ namespace Maa_v2
                         da.Fill(dt);
 
                         donationTableList.DataSource = dt;
+
+                        // Format Created At column
+                        if (donationTableList.Columns["Created At"] != null)
+                            donationTableList.Columns["Created At"].DefaultCellStyle.Format = "dd/MM/yyyy";
+
+                        // ✅ Add Print Invoice button column if not already added
+                        if (!donationTableList.Columns.Contains("PrintInvoice"))
+                        {
+                            DataGridViewButtonColumn btnCol = new DataGridViewButtonColumn();
+                            btnCol.Name = "PrintInvoice";
+                            btnCol.HeaderText = "Action";
+                            btnCol.Text = "Print Invoice";
+                            btnCol.UseColumnTextForButtonValue = true;
+                            donationTableList.Columns.Add(btnCol);
+                        }
                     }
                 }
             }
@@ -196,18 +146,76 @@ namespace Maa_v2
             }
         }
 
+        #endregion
+
+        #region Buttons
+
+        private void BtnApplyFilter_Click(object sender, EventArgs e)
+        {
+            using (frmApplyFilter filterForm = new frmApplyFilter())
+            {
+                if (filterForm.ShowDialog() == DialogResult.OK)
+                {
+                    DateTime? startDate = null, endDate = null, tithiDate = null;
+                    DateTime tempDate;
+
+                    if (DateTime.TryParse(filterForm.StartDate, out tempDate))
+                        startDate = tempDate;
+
+                    if (DateTime.TryParse(filterForm.EndDate, out tempDate))
+                        endDate = tempDate;
+
+                    if (DateTime.TryParse(filterForm.Tithi, out tempDate))
+                        tithiDate = tempDate;
+
+                    LoadDonationData(
+                        receiptNo: filterForm.ReceiptNo,
+                        mobileNumber: filterForm.MobileNumber,
+                        minAmount: filterForm.MinAmount,
+                        maxAmount: filterForm.MaxAmount,
+                        paymentMode: filterForm.PaymentMode,
+                        idNumber: filterForm.IdNumber,
+                        startDate: startDate,
+                        endDate: endDate,
+                        tithi: tithiDate.HasValue ? tithiDate.Value.ToString("yyyy-MM-dd") : ""
+                    );
+                }
+            }
+        }
+
         private void BtnReset_Click(object sender, EventArgs e)
         {
-            LoadDonationData(); // Reload all data
+            LoadDonationData();
         }
 
         private void BtnExportExcel_Click(object sender, EventArgs e)
         {
-            // Export DataGridView to Excel
             ExportToExcel();
         }
 
+        #endregion
 
+        #region DataGridView Button Click
+
+        private void donationTableList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && donationTableList.Columns[e.ColumnIndex].Name == "PrintInvoice")
+            {
+                string receiptNo = donationTableList.Rows[e.RowIndex].Cells["Receipt Number"].Value.ToString();
+
+                frmPreview preview = new frmPreview(receiptNo);
+
+                // Set as MDI child
+                preview.MdiParent = this.MdiParent;  // assumes current form is inside an MDI parent
+                preview.WindowState = FormWindowState.Maximized;
+
+                preview.Show(); // use Show() instead of ShowDialog()
+            }
+        }
+
+        #endregion
+
+        #region Export Excel
 
         private void ExportToExcel()
         {
@@ -219,22 +227,19 @@ namespace Maa_v2
                     return;
                 }
 
-                // Create Excel application
                 Excel.Application excelApp = new Excel.Application();
-                excelApp.Visible = false; // Make Excel visible if you want
+                excelApp.Visible = false;
 
                 Excel.Workbook workbook = excelApp.Workbooks.Add(Type.Missing);
                 Excel.Worksheet worksheet = workbook.Sheets[1];
                 worksheet.Name = "Donation List";
 
-                // Export column headers
                 for (int i = 0; i < donationTableList.Columns.Count; i++)
                 {
                     worksheet.Cells[1, i + 1] = donationTableList.Columns[i].HeaderText;
                     worksheet.Cells[1, i + 1].Font.Bold = true;
                 }
 
-                // Export rows
                 for (int i = 0; i < donationTableList.Rows.Count; i++)
                 {
                     for (int j = 0; j < donationTableList.Columns.Count; j++)
@@ -243,14 +248,14 @@ namespace Maa_v2
                     }
                 }
 
-                // Autofit columns
                 worksheet.Columns.AutoFit();
 
-                // Save dialog
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Filter = "Excel Workbook|*.xlsx";
-                sfd.Title = "Save as Excel File";
-                sfd.FileName = "DonationList.xlsx";
+                SaveFileDialog sfd = new SaveFileDialog
+                {
+                    Filter = "Excel Workbook|*.xlsx",
+                    Title = "Save as Excel File",
+                    FileName = "DonationList.xlsx"
+                };
 
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
@@ -271,5 +276,7 @@ namespace Maa_v2
                 MessageBox.Show("Error exporting data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        #endregion
     }
 }

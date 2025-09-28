@@ -29,10 +29,10 @@ namespace Maa
                 {
                     con.Open();
                     string sql = @"
-                SELECT rp.can_save, rp.can_update, rp.can_delete, rp.can_view, rp.can_export
-                FROM role_permissions rp
-                INNER JOIN modules m ON rp.module_id = m.id
-                WHERE rp.role_id = @roleId AND m.form_name = @formName";
+                                    SELECT rp.can_save, rp.can_update, rp.can_delete, rp.can_view, rp.can_export
+                                    FROM role_permissions rp
+                                    INNER JOIN modules m ON rp.module_id = m.id
+                                    WHERE rp.role_id = @roleId AND m.form_name = @formName";
 
                     using (var cmd = new SqlCommand(sql, con))
                     {

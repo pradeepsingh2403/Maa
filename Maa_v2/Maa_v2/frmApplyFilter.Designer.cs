@@ -30,9 +30,6 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbPaymentMode = new System.Windows.Forms.ComboBox();
-            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
-            this.dtTithi = new System.Windows.Forms.DateTimePicker();
-            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.txtIDNumber = new System.Windows.Forms.TextBox();
             this.txtMaxAmount = new System.Windows.Forms.TextBox();
             this.txtMobileNo = new System.Windows.Forms.TextBox();
@@ -48,16 +45,31 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnApplyFilter = new System.Windows.Forms.Button();
+            this.txtStartDate = new System.Windows.Forms.TextBox();
+            this.txtEndDate = new System.Windows.Forms.TextBox();
+            this.txtTithi = new System.Windows.Forms.TextBox();
+            this.btnMonthViewStartDate = new System.Windows.Forms.Button();
+            this.btnMonthViewTithi = new System.Windows.Forms.Button();
+            this.btnMonthViewEndDate = new System.Windows.Forms.Button();
+            this.mcStartDate = new System.Windows.Forms.MonthCalendar();
+            this.mcEndDate = new System.Windows.Forms.MonthCalendar();
+            this.mcTithi = new System.Windows.Forms.MonthCalendar();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox1.Controls.Add(this.mcTithi);
+            this.groupBox1.Controls.Add(this.mcEndDate);
+            this.groupBox1.Controls.Add(this.mcStartDate);
+            this.groupBox1.Controls.Add(this.btnMonthViewEndDate);
+            this.groupBox1.Controls.Add(this.btnMonthViewTithi);
+            this.groupBox1.Controls.Add(this.btnMonthViewStartDate);
+            this.groupBox1.Controls.Add(this.txtTithi);
+            this.groupBox1.Controls.Add(this.txtEndDate);
+            this.groupBox1.Controls.Add(this.txtStartDate);
             this.groupBox1.Controls.Add(this.cmbPaymentMode);
-            this.groupBox1.Controls.Add(this.dtpEndDate);
-            this.groupBox1.Controls.Add(this.dtTithi);
-            this.groupBox1.Controls.Add(this.dtpStartDate);
             this.groupBox1.Controls.Add(this.txtIDNumber);
             this.groupBox1.Controls.Add(this.txtMaxAmount);
             this.groupBox1.Controls.Add(this.txtMobileNo);
@@ -85,30 +97,6 @@
             this.cmbPaymentMode.Name = "cmbPaymentMode";
             this.cmbPaymentMode.Size = new System.Drawing.Size(270, 28);
             this.cmbPaymentMode.TabIndex = 3;
-            // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEndDate.Location = new System.Drawing.Point(609, 186);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(270, 26);
-            this.dtpEndDate.TabIndex = 9;
-            // 
-            // dtTithi
-            // 
-            this.dtTithi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtTithi.Location = new System.Drawing.Point(187, 225);
-            this.dtTithi.Name = "dtTithi";
-            this.dtTithi.Size = new System.Drawing.Size(270, 26);
-            this.dtTithi.TabIndex = 5;
-            // 
-            // dtpStartDate
-            // 
-            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStartDate.Location = new System.Drawing.Point(187, 180);
-            this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(270, 26);
-            this.dtpStartDate.TabIndex = 4;
             // 
             // txtIDNumber
             // 
@@ -241,6 +229,81 @@
             this.btnApplyFilter.UseVisualStyleBackColor = true;
             this.btnApplyFilter.Click += new System.EventHandler(this.btnApplyFilter_Click);
             // 
+            // txtStartDate
+            // 
+            this.txtStartDate.Location = new System.Drawing.Point(187, 180);
+            this.txtStartDate.Name = "txtStartDate";
+            this.txtStartDate.Size = new System.Drawing.Size(234, 26);
+            this.txtStartDate.TabIndex = 10;
+            // 
+            // txtEndDate
+            // 
+            this.txtEndDate.Location = new System.Drawing.Point(609, 186);
+            this.txtEndDate.Name = "txtEndDate";
+            this.txtEndDate.Size = new System.Drawing.Size(234, 26);
+            this.txtEndDate.TabIndex = 10;
+            // 
+            // txtTithi
+            // 
+            this.txtTithi.Location = new System.Drawing.Point(187, 224);
+            this.txtTithi.Name = "txtTithi";
+            this.txtTithi.Size = new System.Drawing.Size(234, 26);
+            this.txtTithi.TabIndex = 10;
+            // 
+            // btnMonthViewStartDate
+            // 
+            this.btnMonthViewStartDate.Location = new System.Drawing.Point(427, 178);
+            this.btnMonthViewStartDate.Name = "btnMonthViewStartDate";
+            this.btnMonthViewStartDate.Size = new System.Drawing.Size(46, 32);
+            this.btnMonthViewStartDate.TabIndex = 11;
+            this.btnMonthViewStartDate.Text = "...";
+            this.btnMonthViewStartDate.UseVisualStyleBackColor = true;
+            this.btnMonthViewStartDate.Click += new System.EventHandler(this.btnMonthViewStartDate_Click);
+            // 
+            // btnMonthViewTithi
+            // 
+            this.btnMonthViewTithi.Location = new System.Drawing.Point(427, 221);
+            this.btnMonthViewTithi.Name = "btnMonthViewTithi";
+            this.btnMonthViewTithi.Size = new System.Drawing.Size(46, 32);
+            this.btnMonthViewTithi.TabIndex = 11;
+            this.btnMonthViewTithi.Text = "...";
+            this.btnMonthViewTithi.UseVisualStyleBackColor = true;
+            this.btnMonthViewTithi.Click += new System.EventHandler(this.btnMonthViewTithi_Click);
+            // 
+            // btnMonthViewEndDate
+            // 
+            this.btnMonthViewEndDate.Location = new System.Drawing.Point(849, 180);
+            this.btnMonthViewEndDate.Name = "btnMonthViewEndDate";
+            this.btnMonthViewEndDate.Size = new System.Drawing.Size(42, 32);
+            this.btnMonthViewEndDate.TabIndex = 11;
+            this.btnMonthViewEndDate.Text = "...";
+            this.btnMonthViewEndDate.UseVisualStyleBackColor = true;
+            this.btnMonthViewEndDate.Click += new System.EventHandler(this.btnMonthViewEndDate_Click);
+            // 
+            // mcStartDate
+            // 
+            this.mcStartDate.Location = new System.Drawing.Point(79, 96);
+            this.mcStartDate.Name = "mcStartDate";
+            this.mcStartDate.TabIndex = 12;
+            this.mcStartDate.Visible = false;
+            this.mcStartDate.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.mcStartDate_DateSelected);
+            // 
+            // mcEndDate
+            // 
+            this.mcEndDate.Location = new System.Drawing.Point(79, 130);
+            this.mcEndDate.Name = "mcEndDate";
+            this.mcEndDate.TabIndex = 12;
+            this.mcEndDate.Visible = false;
+            this.mcEndDate.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.mcEndDate_DateSelected);
+            // 
+            // mcTithi
+            // 
+            this.mcTithi.Location = new System.Drawing.Point(79, 167);
+            this.mcTithi.Name = "mcTithi";
+            this.mcTithi.TabIndex = 12;
+            this.mcTithi.Visible = false;
+            this.mcTithi.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.mcTithi_DateSelected);
+            // 
             // frmApplyFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -274,10 +337,16 @@
         private System.Windows.Forms.TextBox txtMobileNo;
         private System.Windows.Forms.TextBox txtMinAmount;
         private System.Windows.Forms.TextBox txtReceiptNo;
-        private System.Windows.Forms.DateTimePicker dtpEndDate;
-        private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.ComboBox cmbPaymentMode;
-        private System.Windows.Forms.DateTimePicker dtTithi;
         private System.Windows.Forms.Button btnApplyFilter;
+        private System.Windows.Forms.TextBox txtStartDate;
+        private System.Windows.Forms.TextBox txtTithi;
+        private System.Windows.Forms.TextBox txtEndDate;
+        private System.Windows.Forms.Button btnMonthViewEndDate;
+        private System.Windows.Forms.Button btnMonthViewTithi;
+        private System.Windows.Forms.Button btnMonthViewStartDate;
+        private System.Windows.Forms.MonthCalendar mcTithi;
+        private System.Windows.Forms.MonthCalendar mcEndDate;
+        private System.Windows.Forms.MonthCalendar mcStartDate;
     }
 }

@@ -20,13 +20,13 @@ namespace Maa
             btnSave.Enabled = true;
             btnUpdate.Enabled = false;
             btnDelete.Enabled = false;
-            //RolePermission permission = GlobalFunctions.GetRolePermission(GlobalFunctions.role, this.Name);
-            //if (permission != null)
-            //{
-            //    btnSave.Enabled = permission.CanSave;
-            //    btnUpdate.Enabled = permission.CanUpdate;
-            //    btnDelete.Enabled = permission.CanDelete;
-            //}
+            RolePermission permission = GlobalFunctions.GetRolePermission(GlobalFunctions.role, this.Name);
+            if (permission != null)
+            {
+                btnSave.Enabled = permission.CanSave;
+                btnUpdate.Enabled = permission.CanUpdate;
+                btnDelete.Enabled = permission.CanDelete;
+            }
 
         }
 
@@ -321,35 +321,35 @@ namespace Maa
         }
 
         public void InsertDonation(
-            string paymentMode,
-            string inFavour,
-            string donorName,
-            string mobileNumber,
-            string whatsappNumber,
-            string alternateNumber,
-            string area,
-            string city,
-            string gotra,
-            string idType,
-            string idNumber,
-            string schemeName,
-            decimal donationAmount,
-            string fullAddress,
-            DateTime donationDate,
-            string receiptNumber
-        )
+    string paymentMode,
+    string inFavour,
+    string donorName,
+    string mobileNumber,
+    string whatsappNumber,
+    string alternateNumber,
+    string area,
+    string city,
+    string gotra,
+    string idType,
+    string idNumber,
+    string schemeName,
+    decimal donationAmount,
+    string fullAddress,
+    DateTime donationDate,
+    string receiptNumber
+)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(GlobalFunctions.ConnString))
                 {
                     string query = @"
-                    INSERT INTO donations
-                    (payment_mode, in_favour, donor_name, mobile_number, whatsapp_number, alternate_number, 
-                     area, city, gotra, id_type, id_number, scheme_name, donation_amount, full_address, donation_date,receipt_number, created_at, updated_at)
-                    VALUES
-                    (@payment_mode, @in_favour, @donor_name, @mobile_number, @whatsapp_number, @alternate_number, 
-                     @area, @city, @gotra, @id_type, @id_number, @scheme_name, @donation_amount, @full_address, @donation_date, @receiptNumber, GETDATE(), GETDATE())";
+            INSERT INTO donations
+            (payment_mode, in_favour, donor_name, mobile_number, whatsapp_number, alternate_number, 
+             area, city, gotra, id_type, id_number, scheme_name, donation_amount, full_address, donation_date, receipt_number, created_at, updated_at)
+            VALUES
+            (@payment_mode, @in_favour, @donor_name, @mobile_number, @whatsapp_number, @alternate_number, 
+             @area, @city, @gotra, @id_type, @id_number, @scheme_name, @donation_amount, @full_address, @donation_date, @receiptNumber, GETDATE(), GETDATE())";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
@@ -371,14 +371,13 @@ namespace Maa
                         cmd.Parameters.AddWithValue("@receiptNumber", receiptNumber);
 
                         con.Open();
-                        var savedReceiptNo = cmd.ExecuteScalar()?.ToString();
+                        cmd.ExecuteNonQuery(); // ✅ use this instead of ExecuteScalar()
 
                         MessageBox.Show("Donation saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Open Preview Form with ReceiptNo
-                        frmPreview preview = new frmPreview(savedReceiptNo);
+                        // Use the same receiptNumber you passed in
+                        frmPreview preview = new frmPreview(receiptNumber);
                         preview.ShowDialog();
-
                     }
                 }
             }

@@ -140,6 +140,7 @@ namespace Maa
             this.donationListToolStripMenuItem.Name = "donationListToolStripMenuItem";
             this.donationListToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.donationListToolStripMenuItem.Text = "Donation &List";
+            this.donationListToolStripMenuItem.Click += new System.EventHandler(this.listDonationToolStripMenuItem_Click);
             // 
             // helpMenu
             // 

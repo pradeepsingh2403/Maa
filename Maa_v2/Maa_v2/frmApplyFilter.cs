@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 
-
 namespace Maa
 {
     public partial class frmApplyFilter : Form
@@ -13,68 +12,111 @@ namespace Maa
         public decimal? MaxAmount { get; private set; }
         public string PaymentMode { get; private set; }
         public string IdNumber { get; private set; }
-        public DateTime? StartDate { get; private set; }
-        public DateTime? EndDate { get; private set; }
-        public DateTime? Tithi { get; private set; }
+        public string StartDate { get; private set; }
+        public string EndDate { get; private set; }
+        public string Tithi { get; private set; }
 
         public frmApplyFilter()
         {
             InitializeComponent();
+
+            // Populate payment mode dropdown
             cmbPaymentMode.Items.Clear();
+            cmbPaymentMode.Items.Add("All");
             cmbPaymentMode.Items.Add("Cash");
-            cmbPaymentMode.Items.Add("Check");
+            cmbPaymentMode.Items.Add("Cheque");
             cmbPaymentMode.Items.Add("Credit Card");
             cmbPaymentMode.Items.Add("Debit Card");
             cmbPaymentMode.Items.Add("Online");
-            cmbPaymentMode.SelectedIndex = 0; // Set default selection
+            cmbPaymentMode.SelectedIndex = 0; // Default selection
 
-            // Optional: Set default dates
-            dtpStartDate.Value = DateTime.Now.AddMonths(-1);
-            dtpEndDate.Value = DateTime.Now;
+            // Default date values
+            mcStartDate.SetDate(DateTime.Today);
+            mcEndDate.SetDate(DateTime.Today);
+            mcTithi.SetDate(DateTime.Today);
+
+            mcStartDate.Visible = false;
+            mcEndDate.Visible = false;
+            mcTithi.Visible = false;
         }
+
         private void frmApplyFilter_Load(object sender, EventArgs e)
         {
-            dtpStartDate.Value = DateTime.Today.AddMonths(-1); // safe default
-            dtpEndDate.Value = DateTime.Today;
-            dtTithi.Value = DateTime.Today;
+            // Safe defaults on load
+
         }
 
-
-
-    
-    private void btnApplyFilter_Click(object sender, EventArgs e)
+        private void btnApplyFilter_Click(object sender, EventArgs e)
         {
-            // Capture values from controls
-            string receiptNo = txtReceiptNo.Text.Trim();
-            string mobileNumber = txtMobileNo.Text.Trim();
-            string idNumber = txtIDNumber.Text.Trim();
+            // Capture values from controls → store in properties
+            ReceiptNo = txtReceiptNo.Text.Trim();
+            MobileNumber = txtMobileNo.Text.Trim();
+            IdNumber = txtIDNumber.Text.Trim();
 
-            decimal? minAmount = string.IsNullOrEmpty(txtMinAmount.Text) ? (decimal?)null : Convert.ToDecimal(txtMinAmount.Text);
-            decimal? maxAmount = string.IsNullOrEmpty(txtMaxAmount.Text) ? (decimal?)null : Convert.ToDecimal(txtMaxAmount.Text);
+            MinAmount = string.IsNullOrWhiteSpace(txtMinAmount.Text) ? (decimal?)null : Convert.ToDecimal(txtMinAmount.Text);
+            MaxAmount = string.IsNullOrWhiteSpace(txtMaxAmount.Text) ? (decimal?)null : Convert.ToDecimal(txtMaxAmount.Text);
 
-            string paymentMode = cmbPaymentMode.SelectedItem?.ToString() ?? "All";
+            PaymentMode = cmbPaymentMode.SelectedItem != null ? cmbPaymentMode.SelectedItem.ToString() : "All";
 
-            DateTime? startDate = dtpStartDate.Value.Date;
-            DateTime? endDate = dtpEndDate.Value.Date;
-            DateTime? tithi = dtTithi.Checked ? dtTithi.Value.Date : (DateTime?)null;
+            StartDate = txtStartDate.Text.Trim();
+            EndDate = txtEndDate.Text.Trim();
+            Tithi = txtTithi.Text.Trim();
 
-            // Pass these values back using properties or directly
-            this.Tag = new
+            // ---------- VALIDATION ----------
+
+            // Amount validation
+            if ((MinAmount.HasValue && !MaxAmount.HasValue) || (!MinAmount.HasValue && MaxAmount.HasValue))
             {
-                ReceiptNo = receiptNo,
-                MobileNumber = mobileNumber,
-                IdNumber = idNumber,
-                MinAmount = minAmount,
-                MaxAmount = maxAmount,
-                PaymentMode = paymentMode,
-                StartDate = startDate,
-                EndDate = endDate,
-                Tithi = tithi
-            };
+                MessageBox.Show("Please enter both Min Amount and Max Amount.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            // Date validation
+            if ((!string.IsNullOrEmpty(StartDate) && string.IsNullOrEmpty(EndDate)) ||
+                (string.IsNullOrEmpty(StartDate) && !string.IsNullOrEmpty(EndDate)))
+            {
+                MessageBox.Show("Please enter both Start Date and End Date.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // ---------- SUCCESS ----------
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
+        // MonthCalendar toggle buttons
+        private void btnMonthViewStartDate_Click(object sender, EventArgs e)
+        {
+            mcStartDate.Visible = !mcStartDate.Visible;
+        }
+
+        private void btnMonthViewEndDate_Click(object sender, EventArgs e)
+        {
+            mcEndDate.Visible = !mcEndDate.Visible;
+        }
+
+        private void btnMonthViewTithi_Click(object sender, EventArgs e)
+        {
+            mcTithi.Visible = !mcTithi.Visible;
+        }
+
+        // MonthCalendar selection events
+        private void mcStartDate_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            txtStartDate.Text = mcStartDate.SelectionStart.ToString("dd-MM-yyyy");
+            mcStartDate.Visible = false;
+        }
+
+        private void mcEndDate_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            txtEndDate.Text = mcEndDate.SelectionStart.ToString("dd-MM-yyyy");
+            mcEndDate.Visible = false;
+        }
+
+        private void mcTithi_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            txtTithi.Text = mcTithi.SelectionStart.ToString("dd-MM-yyyy");
+            mcTithi.Visible = false;
+        }
     }
 }
