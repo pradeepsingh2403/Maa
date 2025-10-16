@@ -1,0 +1,13 @@
+id,migration,batch
+19,0001_01_01_000000_create_users_table,1
+20,0001_01_01_000001_create_cache_table,1
+21,0001_01_01_000002_create_jobs_table,1
+22,2025_04_14_075410_create_admins_table,1
+23,2025_04_22_111252_create_roles_table,1
+24,2025_04_22_111347_create_permissions_table,1
+25,2025_04_22_111516_create_permission_role_table,1
+26,2025_04_22_111451_create_role_admin_table,2
+28,2025_04_23_120939_create_donations_table,3
+29,2025_05_19_070715_add_extra_filds_to_donations_table,4
+30,2025_05_19_072455_create_schemes_table,4
+31,2025_05_23_165436_create_settings_table,5

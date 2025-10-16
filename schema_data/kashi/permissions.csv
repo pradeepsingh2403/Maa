@@ -1,0 +1,12 @@
+id,name,slug,created_at,updated_at
+1,User List,/admin/users,2025-04-23 08:55:32,2025-04-23 08:55:32
+2,Role & Permission,/admin/role,2025-04-23 10:18:21,2025-04-23 10:18:21
+3,Admin Dashboard,/admin/dashboard,2025-04-23 11:46:08,2025-04-23 11:46:08
+4,Store Roles,/admin/roles,2025-04-23 11:47:58,2025-04-23 11:47:58
+5,Donation Add,/admin/donation/add,2025-05-20 18:02:22,2025-05-20 18:02:22
+6,Donation Save,/admin/donation/store,2025-05-20 18:03:43,2025-05-20 18:03:43
+7,Donation List,/admin/donation,2025-05-20 18:04:27,2025-05-20 18:04:27
+10,Donation View,/admin/donation/view,2025-05-21 16:12:58,2025-05-21 16:12:58
+11,Donation Pdf Print,/admin/donation/pdf,2025-05-21 16:40:11,2025-05-21 16:40:11
+12,Edit Invoice,/admin/donation/edit,2025-05-22 18:37:59,2025-05-22 18:37:59
+13,Profile,/admin/profile,2025-06-26 11:57:55,2025-06-26 11:57:55
