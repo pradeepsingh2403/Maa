@@ -31,16 +31,20 @@ namespace Maa
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
+            this.SuspendLayout();
             // 
             // frmDashboard
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1575, 639);
-            Name = "frmDashboard";
-            Text = "Dashboard";
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(945, 332);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "frmDashboard";
+            this.Text = "Dashboard";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

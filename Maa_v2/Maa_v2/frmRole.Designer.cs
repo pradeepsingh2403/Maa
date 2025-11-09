@@ -31,6 +31,7 @@ namespace Maa
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRole));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -46,20 +47,20 @@ namespace Maa
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.txtRoleName);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(11, 5);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Location = new System.Drawing.Point(7, 3);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1310, 120);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.groupBox1.Size = new System.Drawing.Size(873, 78);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(688, 45);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdd.Location = new System.Drawing.Point(459, 29);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(101, 37);
+            this.btnAdd.Size = new System.Drawing.Size(67, 24);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -67,10 +68,10 @@ namespace Maa
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(802, 45);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDelete.Location = new System.Drawing.Point(535, 29);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(101, 37);
+            this.btnDelete.Size = new System.Drawing.Size(67, 24);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -78,28 +79,30 @@ namespace Maa
             // 
             // txtRoleName
             // 
-            this.txtRoleName.Location = new System.Drawing.Point(261, 48);
-            this.txtRoleName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtRoleName.Location = new System.Drawing.Point(174, 31);
+            this.txtRoleName.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtRoleName.Name = "txtRoleName";
-            this.txtRoleName.Size = new System.Drawing.Size(379, 26);
+            this.txtRoleName.Size = new System.Drawing.Size(254, 20);
             this.txtRoleName.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 48);
+            this.label1.Location = new System.Drawing.Point(39, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 20);
+            this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Role Name";
             // 
             // frmRole
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1331, 502);
+            this.ClientSize = new System.Drawing.Size(887, 326);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.MaximizeBox = false;
             this.Name = "frmRole";
             this.Text = "Role";

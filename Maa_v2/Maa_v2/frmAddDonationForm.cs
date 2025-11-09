@@ -344,15 +344,17 @@ namespace Maa
                 using (SqlConnection con = new SqlConnection(GlobalFunctions.ConnString))
                 {
                     string query = @"
-            INSERT INTO donations
-            (payment_mode, in_favour, donor_name, mobile_number, whatsapp_number, alternate_number, 
-             area, city, gotra, id_type, id_number, scheme_name, donation_amount, full_address, donation_date, receipt_number, created_at, updated_at)
-            VALUES
-            (@payment_mode, @in_favour, @donor_name, @mobile_number, @whatsapp_number, @alternate_number, 
-             @area, @city, @gotra, @id_type, @id_number, @scheme_name, @donation_amount, @full_address, @donation_date, @receiptNumber, GETDATE(), GETDATE())";
+INSERT INTO donations
+(admin_id, payment_mode, in_favour, donor_name, mobile_number, whatsapp_number, alternate_number, 
+ area, city, gotra, id_type, id_number, scheme_name, donation_amount, full_address, donation_date, receipt_number, created_at, updated_at)
+VALUES
+(@admin_id, @payment_mode, @in_favour, @donor_name, @mobile_number, @whatsapp_number, @alternate_number, 
+ @area, @city, @gotra, @id_type, @id_number, @scheme_name, @donation_amount, @full_address, @donation_date, @receiptNumber, GETDATE(), GETDATE())";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
+                        // Add parameters
+                        cmd.Parameters.AddWithValue("@admin_id", 1);              // ✅ added missing parameter
                         cmd.Parameters.AddWithValue("@payment_mode", paymentMode);
                         cmd.Parameters.AddWithValue("@in_favour", inFavour);
                         cmd.Parameters.AddWithValue("@donor_name", donorName);
@@ -371,11 +373,11 @@ namespace Maa
                         cmd.Parameters.AddWithValue("@receiptNumber", receiptNumber);
 
                         con.Open();
-                        cmd.ExecuteNonQuery(); // ✅ use this instead of ExecuteScalar()
+                        cmd.ExecuteNonQuery(); // ✅ Execute insert
 
                         MessageBox.Show("Donation saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Use the same receiptNumber you passed in
+                        // Use the same receipt number for preview
                         frmPreview preview = new frmPreview(receiptNumber);
                         preview.ShowDialog();
                     }
@@ -385,6 +387,7 @@ namespace Maa
             {
                 MessageBox.Show("Error while inserting donation: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void DeleteDonation(int donationId)

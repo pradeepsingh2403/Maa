@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web.Security;
 using System.Windows.Forms;
 
@@ -13,7 +16,7 @@ namespace Maa
         public frmUsers()
         {
             InitializeComponent();
-
+            this.picLoader.Visible = false;
             // Load event and grid setup
             frmUsers_Load(this, EventArgs.Empty);
             dgv.CellDoubleClick += Dgv_CellDoubleClick;
@@ -152,7 +155,7 @@ namespace Maa
 
                 // Store selected ID
                 selectedUserId = Convert.ToInt32(row.Cells["id"].Value);
-                btnAdd.Enabled=false; // Disable Add button when editing
+                btnAdd.Enabled = false; // Disable Add button when editing
                 RolePermission permission = GlobalFunctions.GetRolePermission(GlobalFunctions.role, this.Name);
                 if (permission != null)
                 {
@@ -178,7 +181,7 @@ namespace Maa
             InsertUsers(txtUserName.Text.Trim(), txtEmail.Text.Trim(), txtPhone.Text.Trim(), password, roleId, statusId);
         }
 
-        private void InsertUsers(string name, string email, string phone, string password, int roleId, int statusId)
+        private async void InsertUsers(string name, string email, string phone, string password, int roleId, int statusId)
         {
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
@@ -188,20 +191,25 @@ namespace Maa
 
             try
             {
+                // ✅ Show loader
+                picLoader.Visible = true;
+                btnAdd.Enabled = false;
+
+                // 1️⃣ Insert into local database
                 string connStr = GlobalFunctions.ConnString;
                 using (var con = new SqlConnection(connStr))
                 {
                     con.Open();
                     string sql = @"INSERT INTO admins 
-                           (name, image, email, phone, password, status, role_id, created_at, updated_at) 
-                           VALUES (@name, @image, @email, @phone, @password, @status, @role_id, GETDATE(), GETDATE())";
+                   (name, image, email, phone, password, status, role_id, created_at, updated_at) 
+                   VALUES (@name, @image, @email, @phone, @password, @status, @role_id, GETDATE(), GETDATE())";
 
                     using (var cmd = new SqlCommand(sql, con))
                     {
                         cmd.Parameters.AddWithValue("@name", name);
                         cmd.Parameters.AddWithValue("@email", email);
                         cmd.Parameters.AddWithValue("@phone", phone ?? "");
-                        cmd.Parameters.AddWithValue("@password", password); // ⚠️ Hash in production!
+                        cmd.Parameters.AddWithValue("@password", password); // ⚠️ Consider hashing in production
                         cmd.Parameters.AddWithValue("@role_id", roleId);
                         cmd.Parameters.AddWithValue("@status", statusId);
                         cmd.Parameters.AddWithValue("@image", DBNull.Value);
@@ -210,13 +218,17 @@ namespace Maa
 
                         if (rowsAffected > 0)
                         {
+                            // 2️⃣ Sync with live API
+                            await SyncUserWithAPI(name, email, password);
+
                             MessageBox.Show("Admin added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             LoadUsers(); // Refresh DataGridView
                             ClearData();
                         }
                         else
                         {
-                            MessageBox.Show("Failed to add admin.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Failed to add admin locally.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -225,7 +237,50 @@ namespace Maa
             {
                 MessageBox.Show("Error adding admin: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally
+            {
+                // ✅ Hide loader
+                picLoader.Visible = false;
+                btnAdd.Enabled = true;
+            }
         }
+
+
+        private async Task SyncUserWithAPI(string name, string email, string password)
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(GlobalFunctions.LiveAPIURL);
+
+                    var payload = new
+                    {
+                        name = name,
+                        email = email,
+                        password = password,
+                        password_confirmation = password
+                    };
+
+                    string jsonPayload = JsonConvert.SerializeObject(payload);
+                    var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+                    HttpResponseMessage response = await client.PostAsync("user-store", content);
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        string error = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show("Failed to sync with live API: " + error, "API Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error syncing with API: " + ex.Message, "API Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
 
 
         private void btnUpdate_Click(object sender, EventArgs e)

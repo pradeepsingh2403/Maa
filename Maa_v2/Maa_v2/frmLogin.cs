@@ -17,6 +17,7 @@ namespace Maa_v2
         public frmLogin()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -33,7 +34,7 @@ namespace Maa_v2
             bool success = LoginUser(email, password);
             if (success)
             {
-                MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               // MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Open main form or dashboard
                 this.Hide();
                 new MDIParent().Show();
@@ -55,7 +56,7 @@ namespace Maa_v2
                 {
                     string query = @"
                 SELECT id, name, role_id, password, status
-                FROM admins
+                FROM dbo.admins
                 WHERE email = @Email AND password=@Password";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))

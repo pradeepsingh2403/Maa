@@ -17,8 +17,9 @@ namespace Maa
 
         public MDIParent()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
+
 
         private void ShowNewForm(object sender, EventArgs e)
         {
@@ -172,6 +173,27 @@ namespace Maa
             rolePermission.MdiParent = this;   // set MDI parent
             rolePermission.WindowState = FormWindowState.Normal; // optional (fill parent)
             rolePermission.Show();
+        }
+
+        private void dashbToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDashboard dashboard = new frmDashboard();
+            dashboard.MdiParent = this;   // set MDI parent
+            dashboard.WindowState = FormWindowState.Maximized; // optional (fill parent)
+            dashboard.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void syncDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSyncData dashboard = new frmSyncData();
+            dashboard.MdiParent = this;   // set MDI parent
+            dashboard.WindowState = FormWindowState.Maximized; // optional (fill parent)
+            dashboard.Show();
         }
     }
 }

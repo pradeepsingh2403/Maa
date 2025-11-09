@@ -34,6 +34,7 @@ namespace Maa
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddDonationForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtpDonationDate = new System.Windows.Forms.DateTimePicker();
             this.cmbSchemeName = new System.Windows.Forms.ComboBox();
@@ -109,314 +110,330 @@ namespace Maa
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(11, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Location = new System.Drawing.Point(7, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1336, 387);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.groupBox1.Size = new System.Drawing.Size(891, 252);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // dtpDonationDate
             // 
             this.dtpDonationDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDonationDate.Location = new System.Drawing.Point(924, 22);
-            this.dtpDonationDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpDonationDate.Location = new System.Drawing.Point(616, 14);
+            this.dtpDonationDate.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dtpDonationDate.Name = "dtpDonationDate";
-            this.dtpDonationDate.Size = new System.Drawing.Size(270, 26);
+            this.dtpDonationDate.Size = new System.Drawing.Size(181, 20);
             this.dtpDonationDate.TabIndex = 49;
             // 
             // cmbSchemeName
             // 
             this.cmbSchemeName.FormattingEnabled = true;
-            this.cmbSchemeName.Location = new System.Drawing.Point(924, 94);
-            this.cmbSchemeName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbSchemeName.Location = new System.Drawing.Point(616, 61);
+            this.cmbSchemeName.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.cmbSchemeName.Name = "cmbSchemeName";
-            this.cmbSchemeName.Size = new System.Drawing.Size(284, 28);
+            this.cmbSchemeName.Size = new System.Drawing.Size(191, 21);
             this.cmbSchemeName.TabIndex = 11;
             // 
             // cmbIDType
             // 
             this.cmbIDType.FormattingEnabled = true;
-            this.cmbIDType.ItemHeight = 20;
-            this.cmbIDType.Location = new System.Drawing.Point(309, 242);
-            this.cmbIDType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbIDType.ItemHeight = 13;
+            this.cmbIDType.Location = new System.Drawing.Point(206, 157);
+            this.cmbIDType.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.cmbIDType.Name = "cmbIDType";
-            this.cmbIDType.Size = new System.Drawing.Size(284, 28);
+            this.cmbIDType.Size = new System.Drawing.Size(191, 21);
             this.cmbIDType.TabIndex = 7;
             // 
             // cmbPaymentMode
             // 
             this.cmbPaymentMode.FormattingEnabled = true;
-            this.cmbPaymentMode.Location = new System.Drawing.Point(309, 94);
-            this.cmbPaymentMode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbPaymentMode.Location = new System.Drawing.Point(206, 61);
+            this.cmbPaymentMode.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.cmbPaymentMode.Name = "cmbPaymentMode";
-            this.cmbPaymentMode.Size = new System.Drawing.Size(284, 28);
+            this.cmbPaymentMode.Size = new System.Drawing.Size(191, 21);
             this.cmbPaymentMode.TabIndex = 3;
             // 
             // txtReceiptNumber
             // 
-            this.txtReceiptNumber.Location = new System.Drawing.Point(924, 246);
-            this.txtReceiptNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtReceiptNumber.Location = new System.Drawing.Point(616, 160);
+            this.txtReceiptNumber.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtReceiptNumber.MaxLength = 10;
             this.txtReceiptNumber.Name = "txtReceiptNumber";
-            this.txtReceiptNumber.Size = new System.Drawing.Size(284, 26);
+            this.txtReceiptNumber.Size = new System.Drawing.Size(191, 20);
             this.txtReceiptNumber.TabIndex = 15;
             this.txtReceiptNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtReceiptNumber_KeyPress);
             // 
             // txtDonationAmount
             // 
-            this.txtDonationAmount.Location = new System.Drawing.Point(924, 281);
-            this.txtDonationAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDonationAmount.Location = new System.Drawing.Point(616, 183);
+            this.txtDonationAmount.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtDonationAmount.MaxLength = 10;
             this.txtDonationAmount.Name = "txtDonationAmount";
-            this.txtDonationAmount.Size = new System.Drawing.Size(284, 26);
+            this.txtDonationAmount.Size = new System.Drawing.Size(191, 20);
             this.txtDonationAmount.TabIndex = 16;
             this.txtDonationAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonationAmount_KeyPress);
             // 
             // txtGotram
             // 
-            this.txtGotram.Location = new System.Drawing.Point(924, 56);
-            this.txtGotram.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtGotram.Location = new System.Drawing.Point(616, 36);
+            this.txtGotram.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtGotram.MaxLength = 50;
             this.txtGotram.Name = "txtGotram";
-            this.txtGotram.Size = new System.Drawing.Size(284, 26);
+            this.txtGotram.Size = new System.Drawing.Size(191, 20);
             this.txtGotram.TabIndex = 10;
             // 
             // txWhatsAppNumber
             // 
-            this.txWhatsAppNumber.Location = new System.Drawing.Point(924, 174);
-            this.txWhatsAppNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txWhatsAppNumber.Location = new System.Drawing.Point(616, 113);
+            this.txWhatsAppNumber.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txWhatsAppNumber.MaxLength = 10;
             this.txWhatsAppNumber.Name = "txWhatsAppNumber";
-            this.txWhatsAppNumber.Size = new System.Drawing.Size(284, 26);
+            this.txWhatsAppNumber.Size = new System.Drawing.Size(191, 20);
             this.txWhatsAppNumber.TabIndex = 13;
             this.txWhatsAppNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txWhatsAppNumber_KeyPress);
             // 
             // txtMobileNumber
             // 
-            this.txtMobileNumber.Location = new System.Drawing.Point(924, 137);
-            this.txtMobileNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMobileNumber.Location = new System.Drawing.Point(616, 89);
+            this.txtMobileNumber.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtMobileNumber.MaxLength = 10;
             this.txtMobileNumber.Name = "txtMobileNumber";
-            this.txtMobileNumber.Size = new System.Drawing.Size(284, 26);
+            this.txtMobileNumber.Size = new System.Drawing.Size(191, 20);
             this.txtMobileNumber.TabIndex = 12;
             this.txtMobileNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobileNumber_KeyPress);
             // 
             // txtAlternateNumber
             // 
-            this.txtAlternateNumber.Location = new System.Drawing.Point(924, 217);
-            this.txtAlternateNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtAlternateNumber.Location = new System.Drawing.Point(616, 141);
+            this.txtAlternateNumber.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtAlternateNumber.MaxLength = 10;
             this.txtAlternateNumber.Name = "txtAlternateNumber";
-            this.txtAlternateNumber.Size = new System.Drawing.Size(284, 26);
+            this.txtAlternateNumber.Size = new System.Drawing.Size(191, 20);
             this.txtAlternateNumber.TabIndex = 14;
             this.txtAlternateNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAlternateNumber_KeyPress);
             // 
             // txtIDNumber
             // 
-            this.txtIDNumber.Location = new System.Drawing.Point(309, 278);
-            this.txtIDNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtIDNumber.Location = new System.Drawing.Point(206, 181);
+            this.txtIDNumber.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtIDNumber.MaxLength = 50;
             this.txtIDNumber.Name = "txtIDNumber";
-            this.txtIDNumber.Size = new System.Drawing.Size(284, 26);
+            this.txtIDNumber.Size = new System.Drawing.Size(191, 20);
             this.txtIDNumber.TabIndex = 8;
             // 
             // txtCity
             // 
-            this.txtCity.Location = new System.Drawing.Point(309, 201);
-            this.txtCity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCity.Location = new System.Drawing.Point(206, 131);
+            this.txtCity.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtCity.MaxLength = 50;
             this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(284, 26);
+            this.txtCity.Size = new System.Drawing.Size(191, 20);
             this.txtCity.TabIndex = 6;
             // 
             // txtArea
             // 
-            this.txtArea.Location = new System.Drawing.Point(309, 164);
-            this.txtArea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtArea.Location = new System.Drawing.Point(206, 107);
+            this.txtArea.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtArea.MaxLength = 50;
             this.txtArea.Name = "txtArea";
-            this.txtArea.Size = new System.Drawing.Size(284, 26);
+            this.txtArea.Size = new System.Drawing.Size(191, 20);
             this.txtArea.TabIndex = 5;
             // 
             // txtFullAddress
             // 
-            this.txtFullAddress.Location = new System.Drawing.Point(309, 133);
-            this.txtFullAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtFullAddress.Location = new System.Drawing.Point(206, 86);
+            this.txtFullAddress.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtFullAddress.MaxLength = 150;
             this.txtFullAddress.Name = "txtFullAddress";
-            this.txtFullAddress.Size = new System.Drawing.Size(284, 26);
+            this.txtFullAddress.Size = new System.Drawing.Size(191, 20);
             this.txtFullAddress.TabIndex = 4;
             // 
             // txtInFaverOff
             // 
-            this.txtInFaverOff.Location = new System.Drawing.Point(309, 58);
-            this.txtInFaverOff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtInFaverOff.Location = new System.Drawing.Point(206, 38);
+            this.txtInFaverOff.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtInFaverOff.MaxLength = 50;
             this.txtInFaverOff.Name = "txtInFaverOff";
-            this.txtInFaverOff.Size = new System.Drawing.Size(284, 26);
+            this.txtInFaverOff.Size = new System.Drawing.Size(191, 20);
             this.txtInFaverOff.TabIndex = 2;
             // 
             // txtDonarName
             // 
-            this.txtDonarName.Location = new System.Drawing.Point(309, 26);
-            this.txtDonarName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDonarName.Location = new System.Drawing.Point(206, 17);
+            this.txtDonarName.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtDonarName.MaxLength = 50;
             this.txtDonarName.Name = "txtDonarName";
-            this.txtDonarName.Size = new System.Drawing.Size(284, 26);
+            this.txtDonarName.Size = new System.Drawing.Size(191, 20);
             this.txtDonarName.TabIndex = 1;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(770, 246);
+            this.label8.Location = new System.Drawing.Point(513, 160);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(124, 20);
+            this.label8.Size = new System.Drawing.Size(84, 13);
             this.label8.TabIndex = 0;
             this.label8.Text = "Receipt Number";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(770, 283);
+            this.label18.Location = new System.Drawing.Point(513, 184);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(134, 20);
+            this.label18.Size = new System.Drawing.Size(89, 13);
             this.label18.TabIndex = 0;
             this.label18.Text = "Donation Amount";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(773, 212);
+            this.label17.Location = new System.Drawing.Point(515, 138);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(134, 20);
+            this.label17.Size = new System.Drawing.Size(89, 13);
             this.label17.TabIndex = 0;
             this.label17.Text = "Alternate Number";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(57, 281);
+            this.label7.Location = new System.Drawing.Point(38, 183);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 20);
+            this.label7.Size = new System.Drawing.Size(58, 13);
             this.label7.TabIndex = 0;
             this.label7.Text = "ID Number";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(773, 176);
+            this.label16.Location = new System.Drawing.Point(515, 114);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(144, 20);
+            this.label16.Size = new System.Drawing.Size(97, 13);
             this.label16.TabIndex = 0;
             this.label16.Text = "WhatsApp Number";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(57, 245);
+            this.label6.Location = new System.Drawing.Point(38, 159);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 20);
+            this.label6.Size = new System.Drawing.Size(45, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "ID Type";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(773, 137);
+            this.label15.Location = new System.Drawing.Point(515, 89);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(115, 20);
+            this.label15.Size = new System.Drawing.Size(78, 13);
             this.label15.TabIndex = 0;
             this.label15.Text = "Mobile Number";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(57, 206);
+            this.label5.Location = new System.Drawing.Point(38, 134);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 20);
+            this.label5.Size = new System.Drawing.Size(24, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "City";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(57, 130);
+            this.label10.Location = new System.Drawing.Point(38, 84);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(97, 20);
+            this.label10.Size = new System.Drawing.Size(64, 13);
             this.label10.TabIndex = 0;
             this.label10.Text = "Full Address";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(773, 100);
+            this.label14.Location = new System.Drawing.Point(515, 65);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(114, 20);
+            this.label14.Size = new System.Drawing.Size(77, 13);
             this.label14.TabIndex = 0;
             this.label14.Text = "Scheme Name";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(57, 169);
+            this.label4.Location = new System.Drawing.Point(38, 110);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 20);
+            this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Area";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(773, 58);
+            this.label13.Location = new System.Drawing.Point(515, 38);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 20);
+            this.label13.Size = new System.Drawing.Size(41, 13);
             this.label13.TabIndex = 0;
             this.label13.Text = "Gotram";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(57, 94);
+            this.label3.Location = new System.Drawing.Point(38, 61);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 20);
+            this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Payment Mode";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(57, 54);
+            this.label2.Location = new System.Drawing.Point(38, 35);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 20);
+            this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "In Favour Of";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(773, 22);
+            this.label11.Location = new System.Drawing.Point(515, 14);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(113, 20);
+            this.label11.Size = new System.Drawing.Size(76, 13);
             this.label11.TabIndex = 0;
             this.label11.Text = "Donation Date";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(57, 26);
+            this.label1.Location = new System.Drawing.Point(38, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 20);
+            this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Donar Name";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(827, 413);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSave.Location = new System.Drawing.Point(551, 268);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(101, 36);
+            this.btnSave.Size = new System.Drawing.Size(67, 23);
             this.btnSave.TabIndex = 16;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -425,10 +442,10 @@ namespace Maa
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(1148, 413);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancel.Location = new System.Drawing.Point(765, 268);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(101, 36);
+            this.btnCancel.Size = new System.Drawing.Size(67, 23);
             this.btnCancel.TabIndex = 17;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -436,10 +453,10 @@ namespace Maa
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(934, 413);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUpdate.Location = new System.Drawing.Point(623, 268);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(101, 36);
+            this.btnUpdate.Size = new System.Drawing.Size(67, 23);
             this.btnUpdate.TabIndex = 16;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -447,10 +464,10 @@ namespace Maa
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(1041, 413);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDelete.Location = new System.Drawing.Point(694, 268);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(101, 36);
+            this.btnDelete.Size = new System.Drawing.Size(67, 23);
             this.btnDelete.TabIndex = 16;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -459,18 +476,19 @@ namespace Maa
             // frmAddDonationForm
             // 
             this.AcceptButton = this.btnSave;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(1356, 468);
+            this.ClientSize = new System.Drawing.Size(904, 304);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "frmAddDonationForm";
-            this.Text = "frmAddDonationForm";
+            this.Text = "Donation";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
